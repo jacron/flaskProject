@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exchange file {{ title }}</title>
+</head>
+<body>
+    <h1>Exchange file {{ title }}</h1>
+    <h2>{{ data.Version }}</h2>
+    <h3>{{ data.CI }}</h3>
+    <form method="post">
+    {% for record in data.records %}
+        <h3>{{ record.type }}</h3>
+        <table>{% for field in record %}
+            {% if field != 'extra' %}
+            <tr>
+                <td>{{ field }}</td>
+                <td>
+                    <input type="text" value="{{ record[field] }}"
+                           name="{{ record.type }}.{{ field }}">
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}</table>
+        <h3>{{ record.type }}: special</h3>
+        <table>{% for field in record.extra %}
+            <tr>
+                <td>{{ field }}</td>
+                <td>
+                    <input type="text" value="{{ record.extra[field] }}"
+                           name="{{ record.type }}.{{ field }}">
+                </td>
+            </tr>
+        {% endfor %}</table>
+    {% endfor %}
+    <input type="submit" value="save">
+    </form>
+</body>
+</html>
