@@ -3,7 +3,7 @@
 # $Vn: Exchange Format 7
 # $Cl: File contains 0 class records.
 # $Uc: 35
-St1      202005070530                                                   1SELCRA   1.4WR57      NED    2                                   359  0.0            d        
-Pn1      202005070531                      0                    5326    N00625    E         s   2.6
-Cm1      202005070530                                           CM invoerder                     
 # $NR: 3 records written.
+St1      202005070530                                                  1SELCRA   1.4WR57      NED    2                                  359  0.0            d        
+Pn1      202005070531                     0                    5326    N00625    E         s   2.6
+Cm1      202005070530                                          CM invoerder                     

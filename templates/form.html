@@ -2,21 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exchange file {{ title }}</title>
+    <title>Edit Exchange file {{ title }}</title>
+    <style>
+        body {
+            background-color: #aef;
+        }
+        .tables {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .column:not(:first-child) {
+            margin-left: 14px;
+        }
+        input[type=submit] {
+            font-size: 20px;
+        }
+        .header-submit {
+            position: absolute;
+            right: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Exchange file {{ title }}</h1>
-    <h2>{{ data.Version }}</h2>
+<a href="/">Home</a>
+    <h1>Exchange file editor</h1>
+    <h2>{{ title }}</h2>
+    <h3>{{ data.Version }}</h3>
     <h3>{{ data.CI }}</h3>
+    <hr>
     <form method="post">
+    <input type="submit" value="save changes" class="header-submit">
+    <div class="tables">
     {% for record in data.records %}
+        <div class="column">
         <h3>{{ record.type }}</h3>
         <table>{% for field in record %}
             {% if field != 'extra' %}
             <tr>
-                <td>{{ field }}</td>
+                <td>{{ field }} ({{ record[field]|length }})</td>
                 <td>
                     <input type="text" value="{{ record[field] }}"
+                           minlength="{{ record[field]|length }}"
+                           maxlength="{{ record[field]|length }}"
                            name="{{ record.type }}.{{ field }}">
                 </td>
             </tr>
@@ -25,15 +52,21 @@
         <h3>{{ record.type }}: special</h3>
         <table>{% for field in record.extra %}
             <tr>
-                <td>{{ field }}</td>
+                <td>{{ field }} ({{ record.extra[field]|length }})</td>
                 <td>
                     <input type="text" value="{{ record.extra[field] }}"
+                           minlength="{{ record.extra[field]|length }}"
+                           maxlength="{{ record.extra[field]|length }}"
                            name="{{ record.type }}.{{ field }}">
                 </td>
             </tr>
         {% endfor %}</table>
+        </div>
     {% endfor %}
-    <input type="submit" value="save">
+    </div>
+    <input type="submit" value="save changes" class="header-submit">
+    <br>
+    <hr>
     </form>
 </body>
 </html>

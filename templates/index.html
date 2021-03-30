@@ -2,17 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exchange Editor</title>
+    <title>Edit Exchange Files</title>
+    <style>
+        body {
+            background-color: #aef;
+        }
+        li {
+            list-style: none;
+            line-height: 1.7;
+            font-size: large;
+        }
+        a {
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>Exchange Editor</h1>
+<h1>Edit Exchange Files</h1>
 <ul>
-  <li>
-      <a href="exchange/IBTS_2020_3400048_St_Pn_Cm_origineel.bl8">IBTS_2020_3400048_St_Pn_Cm_origineel</a>
-  </li>
-    <li>
-        <a href="exchange/SELCRA_2020_6400451_station_only.bl8">SELCRA_2020_6400451_station_only</a>
-    </li>
+    {% for name in names %}
+      <li>
+          <a href="exchange/{{ name }}">{{ name }}</a>
+      </li>
+    {% endfor %}
 </ul>
 </body>
 </html>
