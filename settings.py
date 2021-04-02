@@ -3,7 +3,7 @@ sampledir = 'sample_exchange_files/'
 format_data = {
     'meta_lines': [],
     'general': [
-        # fieldname, begin, until
+        # fieldname, begin, [until], [alignment]
         ["type", 0, 2],
         ["station", 2, 9],
         ["year", 9, 13],
@@ -32,7 +32,7 @@ format_data = {
         ['wind_direction', 138, 141],
         ['wind_force', 141, 146],
         ['distance_to_shore', 146, 154],
-        ['stm_code', 154, 158],
+        ['stm_code', 154, 158, 'l'],
         ['day_night', 158],
         ['landing_year', 159, 163],
         ['landing_month', 163, 165],

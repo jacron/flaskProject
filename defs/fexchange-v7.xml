@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<!DOCTYPE records SYSTEM "fexchange.dtd">
+<records version="7">
+  <field-def>field-defs-v7.xml</field-def>
+  <record-order>St, Pn, Cm, CT, Sh, Hl, Gu, Ss, Cl, Ag, Di</record-order>
+  <record code="St">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="St/time_accuracy" pos="65"/>
+    <field name="St/program" pos="74"/>
+    <field name="St/program_version" pos="82"/>
+    <field name="St/vessel" pos="86"/>
+    <field name="St/country" pos="96"/>
+    <field name="St/area_code" pos="99"/>
+    <field name="St/quarter" pos="103"/>
+    <field name="St/air_temperature" pos="104"/>
+    <field name="St/cloud_cover" pos="109"/>
+    <field name="St/salinity_factor" pos="110"/>
+    <field name="St/swell_direction" pos="116"/>
+    <field name="St/swell_height" pos="119"/>
+    <field name="St/tidal_phase" pos="123"/>
+    <field name="St/tide_direction" pos="127"/>
+    <field name="St/tide_speed" pos="130"/>
+    <field name="St/water_visibility" pos="133"/>
+    <field name="St/weather_code" pos="137"/>
+    <field name="St/wind_direction" pos="139"/>
+    <field name="St/wind_force" pos="142"/>
+    <field name="St/distance_to_shore" pos="147"/>
+    <field name="St/stratum" pos="155"/>
+    <field name="St/day_night" pos="159"/>
+    <field name="St/landing_date" pos="160"/>
+  </record>
+
+  <record code="Pn">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Pn/seq_no" pos="42"/>
+    <field name="Pn/latitude" pos="65"/>
+    <field name="Pn/longitude" pos="74"/>
+    <field name="Pn/positioning_method" pos="84"/>
+    <field name="Pn/positioning_accuracy" pos="85"/>
+    <field name="Pn/position_type" pos="93"/>
+    <field name="Pn/water_depth" pos="94"/>
+  </record>
+
+  <record code="Cm">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Cm/persons" pos="65"/>
+    <field name="Cm/function" pos="68"/>
+  </record>
+  
+  <record code="CT">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Pn/seq_no" pos="42"/>
+    <field name="CT/depth" pos="65"/>
+    <field name="CT/temperature" pos="71"/>
+    <field name="CT/conductivity" pos="76"/>
+    <field name="CT/oxygen" pos="82"/>
+    <field name="CT/ph" pos="86"/>
+    <field name="CT/turbidity" pos="90"/>
+    <field name="CT/ctd_type" pos="94"/>
+    <field name="CT/salinity" pos="95"/>
+  </record>
+  
+  <record code="Sh">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Sh/description" pos="65"/>
+    <field name="Sh/percentage" pos="85"/>
+  </record>
+  
+  <record code="Hl">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Hl/bottom_track" pos="65"/>
+    <field name="Hl/water_track" pos="70"/>
+    <field name="Hl/direction" pos="75"/>
+    <field name="Hl/duration" pos="78"/>
+    <field name="Hl/valid" pos="87"/>
+    <field name="Hl/missing_taxon" pos="88"/>
+    <field name="Hl/weight" pos="89"/>
+    <field name="Hl/conservation" pos="102"/>
+    <field name="Hl/handling" pos="103"/>
+    <field name="Hl/rotations_ifm" pos="104"/>
+    <field name="Hl/rotations_efm" pos="110"/>
+    <field name="Hl/comment" pos="116"/>
+  </record>
+  
+  <record code="Gu">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Gu/tor_code" pos="65"/>
+    <field name="Gu/gear_subtype" pos="75"/>
+    <field name="Gu/mesh_size" pos="78"/>
+    <field name="Gu/depth_indicator" pos="86"/>
+    <field name="Gu/depth" pos="87"/>
+    <field name="Gu/gear_count" pos="93"/>
+    <field name="Gu/buoyancy" pos="96"/>
+    <field name="Gu/door_spread" pos="100"/>
+    <field name="Gu/door_surface" pos="103"/>
+    <field name="Gu/door_weight" pos="108"/>
+    <field name="Gu/kite_dimensions" pos="112"/>
+    <field name="Gu/net_opening" pos="117"/>
+    <field name="Gu/side" pos="124"/>
+    <field name="Gu/warp_diameter" pos="125"/>
+    <field name="Gu/warp_length" pos="127"/>
+    <field name="Gu/weight_ground_rope" pos="130"/>
+    <field name="Gu/wing_spread" pos="134"/>
+    <field name="Gu/voltage" pos="138"/>
+    <field name="Gu/current" pos="142"/>
+    <field name="Gu/ticklers" pos="146"/>
+    <field name="Gu/chains" pos="148"/>
+    <field name="Gu/internal_fm_id" pos="150"/>
+    <field name="Gu/external_fm_id" pos="153"/>
+  </record>
+  
+  <record code="Ss">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Ss/seq_no" pos="29"/>
+    <field name="Ss/sse_id" pos="65"/>
+    <field name="Ss/method" pos="68"/>
+    <field name="Ss/units_total" pos="69"/>
+    <field name="Ss/units_used" pos="80"/>
+    <field name="Ss/weight" pos="91"/>
+    <field name="Ss/category" pos="104"/>
+  </record>
+  
+  <record code="Cl">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Ss/seq_no" pos="29"/>
+    <field name="Cl/seq_no" pos="32"/>
+    <field name="Cl/taxons" pos="65"/>
+    <field name="Cl/gender" pos="77"/>
+    <field name="Cl/gonad_weight" pos="78"/>
+    <field name="Cl/increment" pos="91"/>
+    <field name="Cl/length" pos="100"/>
+    <field name="Cl/liver_weight" pos="109"/>
+    <field name="Cl/maturity" pos="122"/>
+    <field name="Cl/quantity" pos="123"/>
+    <field name="Cl/lf_repr" pos="130"/>
+    <field name="Cl/cpue_repr" pos="131"/>
+    <field name="Cl/css_weight" pos="132"/>
+    <field name="Cl/girth" pos="145"/>
+    <field name="Cl/digestion_stage" pos="149"/>
+    <field name="Cl/fish_number" pos="150"/>
+    <field name="Cl/stomach_weight" pos="157"/>
+    <field name="Cl/has_ages" pos="170"/>
+    <field name="Cl/egg_stage" pos="171"/>
+    <field name="Cl/tag_code" pos="173"/>
+    <field name="Cl/width" pos="184"/>
+    <field name="Cl/species_determined_by" pos="190"/>
+    <field name="Cl/fat_content" pos="192"/>
+    <field name="Cl/oil_drop_diameter" pos="196"/>
+    <field name="Cl/gutted_weight" pos="205"/>
+    <field name="Cl/css_comment" pos="218"/>
+  </record>
+  
+  <record code="Ag">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Ss/seq_no" pos="29"/>
+    <field name="Cl/seq_no" pos="32"/>
+    <!-- all age fields are stored in the class records of the billie database -->
+    <field name="Cl/yearclass" pos="38"/>
+    <field name="Cl/determination_method" pos="65"/>
+    <field name="Cl/spawner" pos="80"/>
+    <field name="Cl/otolith_type" pos="81"/>
+    <field name="Cl/grading" pos="82"/>
+  </record>
+
+  <record code="Af">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Ss/seq_no" pos="29"/>
+    <field name="Cl/seq_no" pos="32"/>
+    <field name="Cl/yearclass" pos="38"/>
+    <field name="Af/number" pos="65"/>
+    <field name="Af/distance" pos="68"/>
+    <field name="Af/remark" pos="76"/>
+    <field name="Af/ring_count" pos="101"/>
+ </record>
+
+  <record code="Di">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Ss/seq_no" pos="29"/>
+    <field name="Cl/seq_no" pos="32"/>
+    <!-- all age fields are stored in the class records of the billie database -->
+    <field name="Cl/diseases" pos="65"/>
+    <field name="Cl/diseases_quantity" pos="97"/>
+  </record>
+
+  <!-- Tg and Re records are not created by Billie
+  <record code="Tg">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Hl/seq_no" pos="22"/>
+    <field name="Ss/seq_no" pos="29"/>
+    <field name="Cl/seq_no" pos="32"/>
+    <field name="Cl/tag_code" pos="45"/>
+  </record>
+  
+  <record code="Re">
+    <field name="type" pos="1"/>
+    <field name="St/code" pos="3"/>
+    <field name="St/date" pos="10"/>
+    <field name="St/time" pos="18"/>
+    <field name="Cl/tag_code" pos="18"/>
+    <field name="Re/treatment" pos="18"/>
+  </record>
+  -->
+
+</records>
