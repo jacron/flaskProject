@@ -1,4 +1,7 @@
-sampledir = 'sample_exchange_files/'
+# testing this app? use own sample_exchange dir
+# as not to spoil improtant test files
+sampledir = '/Users/orion/Dev/klanten/wur/frisbe_import/sample_exchange_files/'
+# sampledir = 'sample_exchange_files/'
 
 format_data = {
     'meta_lines': [],

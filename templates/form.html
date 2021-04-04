@@ -34,7 +34,7 @@
     <h3>{{ data.CI }}</h3>
     <hr>
     <form method="post">
-    <input type="submit" value="save changes" class="header-submit">
+    <input type="submit" disabled="disabled" value="save changes" class="header-submit">
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
@@ -67,7 +67,7 @@
         </div>
     {% endfor %}
     </div>
-    <input type="submit" value="save changes" class="header-submit">
+    <input type="submit" disabled="disabled" value="save changes" class="header-submit">
     <br>
     <hr>
     </form>
