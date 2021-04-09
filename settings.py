@@ -7,57 +7,241 @@ format_data = {
     'meta_lines': [],
     'general': [
         # fieldname, begin, [until], [alignment]
-        ["type", 0, 2],
-        ["station", 2, 9],
-        ["year", 9, 13],
-        ["month", 13, 15],
-        ["day", 15, 17],
-        ['time', 17, 21],
+        {
+            "field": "type",
+            "begin": 0,
+            "until": 2
+        },
+        {
+            "field": "station",
+            "begin": 2,
+            "until": 9
+        },
+        {
+            "field": "year",
+            "begin": 9,
+            "until": 13
+        },
+        {
+            "field": "month",
+            "begin": 13,
+            "until": 15
+        },
+        {
+            "field": "day",
+            "begin": 15,
+            "until": 17
+        },
+        {
+            "field": "time",
+            "begin": 17,
+            "until": 21
+        },
     ],
     'St': [
-        ['time_accuracy', 64, 73],
-        ['pgm_code', 73, 81],
-        ['pgm_version_number', 81, 85],
-        ['platform_code', 85, 95],
-        ['city_code', 95, 98],
-        ['area_code', 98, 102],
-        ['quarter', 102],
-        ['air_temperature', 103, 108],
-        ['cloud_cover', 108],
-        ['salinity_factor', 109, 115],
-        ['swell_direction', 115, 118],
-        ['swell_height', 118, 122],
-        ['tidal_phase', 122, 126],
-        ['tide_direction', 126, 129],
-        ['tide_speed', 129, 132],
-        ['water_visibility', 132, 136],
-        ['wheater_code', 136, 137],
-        ['wind_direction', 138, 141],
-        ['wind_force', 141, 146],
-        ['distance_to_shore', 146, 154],
-        ['stm_code', 154, 158, 'l'],
-        ['day_night', 158],
-        ['landing_year', 159, 163],
-        ['landing_month', 163, 165],
-        ['landing_day', 165, 167],
+        {
+            "field": "time_accuracy",
+            "begin": 64,
+            "until": 73
+        },
+        {
+            "field": "pgm_code",
+            "begin": 73,
+            "until": 81
+        },
+        {
+            "field": "pgm_version_number",
+            "begin": 81,
+            "until": 85
+        },
+        {
+            "field": "platform_code",
+            "begin": 85,
+            "until": 95
+        },
+        {
+            "field": "city_code",
+            "begin": 95,
+            "until": 98
+        },
+        {
+            "field": "area_code",
+            "begin": 98,
+            "until": 102
+        },
+        {
+            "field": "quarter",
+            "begin": 102
+        },
+        {
+            "field": "air_temperature",
+            "begin": 103,
+            "until": 108
+        },
+        {
+            "field": "cloud_cover",
+            "begin": 108,
+        },
+        {
+            "field": "salinity_factor",
+            "begin": 109,
+            "until": 115
+        },
+
+        {
+            "field": "swell_direction",
+            "begin": 115,
+            "until": 118
+        },
+        {
+            "field": "swell_height",
+            "begin": 118,
+            "until": 122
+        },
+        {
+            "field": "tidal_phase",
+            "begin": 122,
+            "until": 126
+        },
+        {
+            "field": "tide_direction",
+            "begin": 126,
+            "until": 129
+        },
+        {
+            "field": "tide_speed",
+            "begin": 129,
+            "until": 132
+        },
+
+        {
+            "field": "water_visibility",
+            "begin": 132,
+            "until": 136
+        },
+        {
+            "field": "wheater_code",
+            "begin": 136,
+            "until": 137
+        },
+        {
+            "field": "wind_direction",
+            "begin": 138,
+            "until": 141
+        },
+        {
+            "field": "wind_force",
+            "begin": 141,
+            "until": 146
+        },
+        {
+            "field": "distance_to_shore",
+            "begin": 146,
+            "until": 154
+        },
+
+        {
+            "field": "stm_code",
+            "begin": 154,
+            "until": 158,
+            "alignment": "l"
+        },
+        {
+            "field": "day_night",
+            "begin": 158,
+        },
+        {
+            "field": "landing_year",
+            "begin": 159,
+            "until": 163
+        },
+        {
+            "field": "landing_month",
+            "begin": 163,
+            "until": 165
+        },
+        {
+            "field": "landing_day",
+            "begin": 165,
+            "until": 167
+        },
     ],
     'Pn': [
-        ['number', 41, 64],
-        ['lat_degrees', 64, 66],
-        ['lat_minutes', 66, 68],
-        ['lat_seconds', 68, 72],
-        ['north_south', 72],
-        ['lon_degrees', 73, 76],
-        ['lon_minutes', 76, 78],
-        ['lon_seconds', 78, 82],
-        ['east_west', 82],
-        ['pos_method', 83],
-        ['pos_accuracy', 84, 92],
-        ['pos_type', 92],
-        ['depth', 93, 99]
+        {
+            "field": "number",
+            "begin": 41,
+            "until": 64
+        },
+        {
+            "field": "lat_degrees",
+            "begin": 64,
+            "until": 66
+        },
+        {
+            "field": "lat_minutes",
+            "begin": 66,
+            "until": 68
+        },
+        {
+            "field": "lat_seconds",
+            "begin": 68,
+            "until": 72
+        },
+
+        {
+            "field": "north_south",
+            "begin": 72,
+        },
+
+        {
+            "field": "lon_degrees",
+            "begin": 73,
+            "until": 76
+        },
+        {
+            "field": "lon_minutes",
+            "begin": 76,
+            "until": 78
+        },
+        {
+            "field": "lon_seconds",
+            "begin": 78,
+            "until": 82
+        },
+        {
+            "field": "east_west",
+            "begin": 82,
+        },
+        {
+            "field": "pos_method",
+            "begin": 83,
+        },
+
+        {
+            "field": "pos_accuracy",
+            "begin": 84,
+            "until": 92
+        },
+        {
+            "field": "pos_type",
+            "begin": 92,
+        },
+        {
+            "field": "depth",
+            "begin": 93,
+            "until": 99
+        },
     ],
     'Cm': [
-        ['initials', 64, 67],
-        ['function', 67, 97],
+        {
+            "field": "initials",
+            "begin": 64,
+            "until": 67
+        },
+        {
+            "field": "function",
+            "begin": 67,
+            "until": 97
+        },
     ]
 }

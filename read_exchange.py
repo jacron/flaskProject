@@ -10,32 +10,19 @@ def add_meta(line, data):
         data['CI'] = line[len(prefix):]
 
 
-def parse_general(record, line):
-    for frmt in format_data['general']:
-        if len(frmt) == 3:
-            record[frmt[0]] = line[frmt[1]:frmt[2]]
-        else:
-            record[frmt[0]] = line[frmt[1]]
-
-
-def parse_extra(extra, record, line):
-    try:
-        for frmt in format_data[record['type']]:
-            if len(frmt) == 3:
-                extra[frmt[0]] = line[frmt[1]:frmt[2]]
-            else:
-                extra[frmt[0]] = line[frmt[1]]
-    except IndexError as e:
-        print(e)
-        print(line, frmt[0], frmt[1])
-
-
-def parse_record(line):
+def parse_record(line, format_data_):
     record = dict()
-    parse_general(record, line)
-    extra = dict()
-    parse_extra(extra, record, line)
-    record['extra'] = extra
+    for frmt in format_data_:
+        if frmt.get('until'):
+            record[frmt['field']] = line[frmt['begin']:frmt['until']]
+        else:
+            record[frmt['field']] = line[frmt['begin']]
+    return record
+
+
+def parse_line(line):
+    record = parse_record(line, format_data['general'])
+    record['extra'] = parse_record(line, format_data[record['type']])
     return record
 
 
@@ -45,13 +32,13 @@ def parse(lines):
     format_data['meta_lines'] = []
     for line in lines:
         if line.startswith('#'):
-            # save for writing the output
+            # save meta-line for writing to the output file
             format_data['meta_lines'].append(line)
-            # parse for some info to display
+            # parse some info to display in the page header
             add_meta(line[2:], data)
         else:
             # parse record to use in the edit box in the form
-            data['records'].append(parse_record(line))
+            data['records'].append(parse_line(line))
     return data
 
 
