@@ -1,4 +1,4 @@
-from settings import format_data, sampledir, meta_lines
+from settings import format_data, sampledir, meta_lines, clear_meta_lines
 
 
 def add_meta(line, data):
@@ -58,7 +58,7 @@ def parse_line(line):
 def parse(lines):
     data = dict()
     data['records'] = []
-    format_data['meta_lines'] = []
+    clear_meta_lines()
     for line in lines:
         if line.startswith('#'):
             # save meta-line for writing to the output file

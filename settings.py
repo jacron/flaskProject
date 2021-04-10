@@ -5,6 +5,12 @@ sampledir = '/Users/orion/Dev/klanten/wur/frisbe_import/sample_exchange_files/'
 
 meta_lines = []
 
+
+def clear_meta_lines():
+    global meta_lines
+    meta_lines = []
+
+
 format_data = {
     'general': [
         {
