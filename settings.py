@@ -199,20 +199,27 @@ format_data = {
             ]
         },
         {
-            "field": "landing_year",
-            "begin": 159,
-            "until": 163
-        },
-        {
-            "field": "landing_month",
-            "begin": 163,
-            "until": 165
-        },
-        {
-            "field": "landing_day",
-            "begin": 165,
-            "until": 167
-        },
+            "composite": {
+                "label": "landing",
+                "fields": [
+                    {
+                        "field": "landing_year",
+                        "begin": 159,
+                        "until": 163
+                    },
+                    {
+                        "field": "landing_month",
+                        "begin": 163,
+                        "until": 165
+                    },
+                    {
+                        "field": "landing_day",
+                        "begin": 165,
+                        "until": 167
+                    },
+                ]
+            }
+        }
     ],
     'Pn': [
         {
@@ -276,17 +283,24 @@ format_data = {
             "begin": 82,
         },
         {
-            "field": "pos_method",
-            "begin": 83,
-        },
-        {
-            "field": "pos_accuracy",
-            "begin": 84,
-            "until": 92,
-        },
-        {
-            "field": "pos_type",
-            "begin": 92,
+            "composite": {
+                "label": "pos",
+                "fields": [
+                    {
+                        "field": "pos_method",
+                        "begin": 83,
+                    },
+                    {
+                        "field": "pos_accuracy",
+                        "begin": 84,
+                        "until": 92,
+                    },
+                    {
+                        "field": "pos_type",
+                        "begin": 92,
+                    },
+                ]
+            }
         },
         {
             "field": "depth",

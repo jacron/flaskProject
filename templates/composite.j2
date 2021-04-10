@@ -1,0 +1,13 @@
+{% set cmp = record[field] %}
+<td><label>{{ cmp.label }}</label></td>
+<td>
+{% for f in cmp.fields %}
+    {% set value = cmp.fields[f].value %}
+    <input type="text" value="{{ value }}"
+           class="little"
+           minlength="{{ value|length }}"
+           maxlength="{{ value|length }}"
+           name="{{ record.type.value }}.{{ f }}"
+           title="{{ f }}">
+{% endfor %}
+</td>

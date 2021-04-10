@@ -1,35 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Exchange file {{ title }}</title>
-    <style>
-        body {
-            background-color: #aef;
-        }
-        .tables {
-            display: flex;
-            flex-wrap: wrap;
-        }
-        .column:not(:first-child) {
-            margin-left: 14px;
-        }
-        input[type=submit] {
-            font-size: 20px;
-        }
-        .header-submit {
-            position: absolute;
-            right: 20px;
-        }
-        input {
-            font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-        }
-        input.little {
-            width: 40px;
-        }
-    </style>
-</head>
-<body>
+{%  extends "base.html" %}
+{% block title %}Edit Exchange file {{ title }}{% endblock %}
+{% block css %}
+    <link href="/static/form.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
 <a href="/">Home</a>
     <h1>Exchange file editor</h1>
     <h2>{{ title }}</h2>
@@ -37,80 +11,25 @@
     <h3>{{ data.CI }}</h3>
     <hr>
     <form method="post">
-    <input type="submit" disabled="disabled" value="save changes" class="header-submit">
+    <input type="submit" value="save changes" class="header-submit">
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
         <h3>{{ record.type.value }}</h3>
         <table>{% for field in record %}
             <tr>
-            {% if field != 'extra' %}
                 {% if field|first == '#' %}
-                    {% set cmp = record[field] %}
-                    <td><label>{{ cmp.label }}</label></td>
-                    <td>
-                    {% for f in cmp.fields %}
-                        {% set value = cmp.fields[f].value %}
-                        <input type="text" value="{{ value }}"
-                               class="little"
-                               minlength="{{ value|length }}"
-                               maxlength="{{ value|length }}"
-                               name="{{ record.type.value }}.{{ f }}"
-                               title="value">
-                    {% endfor %}
-                    </td>
+                    {% include 'composite.j2' %}
                 {% else %}
-                {%  set value = record[field].value %}
-                <td><label for="input1">{{ field }} ({{ value|length }})</label></td>
-                <td>
-                    <input type="text"
-                           value="{{ value }}"
-                           minlength="{{ value|length }}"
-                           maxlength="{{ value|length }}"
-                           name="{{ record.type.value }}.{{ field }}"
-                           id="input1">
-                </td>
-                {% endif %}
-            {% endif %}
-            </tr>
-        {% endfor %}</table>
-        <h3>{{ record.type.value }}: special</h3>
-        <table>{% for field in record.extra %}
-            {%  set value = record.extra[field].value %}
-            <tr>
-                {% if field|first == '#' %}
-                    {% set cmp = record.extra[field] %}
-                    <td><label>{{ cmp.label }}</label></td>
-                    <td>
-                    {% for f in cmp.fields %}
-                        {% set value = cmp.fields[f].value %}
-                        <input type="text" value="{{ value }}"
-                               class="little"
-                               minlength="{{ value|length }}"
-                               maxlength="{{ value|length }}"
-                               name="{{ record.type.value }}.{{ f }}"
-                               title="value">
-                    {% endfor %}
-                    </td>
-                {% else %}
-                <td><label for="input2">{{ field }} ({{ record.extra[field]|length }})</label></td>
-                <td>
-                    <input type="text"
-                           value="{{ value }}"
-                           minlength="{{ value|length }}"
-                           maxlength="{{ value|length }}"
-                           name="{{ record.type }}.{{ field }}"
-                           id="input2">
-                </td>
+                    {% include 'simple.j2' %}
                 {% endif %}
             </tr>
         {% endfor %}</table>
         </div>
     {% endfor %}
     </div>
-    <input type="submit" disabled="disabled" value="save changes" class="header-submit">
+    <input type="submit" value="save changes" class="header-submit">
     <br>
     <hr>
     </form>
-</body>
-</html>
+{% endblock %}

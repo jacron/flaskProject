@@ -19,12 +19,13 @@ def write_exchange(form, filename):
             line += output_data[type_][field]
             if field == 'time':
                 if type_ == 'Pn':
-                    line += ' ' * 19
+                    line += ' ' * 20
                 else:
-                    line += ' ' * 42
+                    line += ' ' * 43
         lines.append(line + '\n')
 
-    with open(sampledir + filename, "w+") as fp:
+    fle = sampledir + filename + '.edited.bl8'
+    with open(fle, "w+") as fp:
         fp.writelines(lines)
 
-    print('written content to', sampledir + filename)
+    print('written content to', fle)

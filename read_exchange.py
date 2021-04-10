@@ -51,8 +51,8 @@ def parse_record(line, format_data_):
 
 def parse_line(line):
     record = parse_record(line, format_data['general'])
-    record['extra'] = parse_record(line, format_data[record['type']['value']])
-    return record
+    extra = parse_record(line, format_data[record['type']['value']])
+    return {**record, **extra}
 
 
 def parse(lines):
