@@ -10,19 +10,48 @@ def add_meta(line, data):
         data['CI'] = line[len(prefix):]
 
 
+def record_value(line, frmt):
+    if frmt.get('until'):
+        return line[frmt['begin']:frmt['until']]
+    else:
+        return line[frmt['begin']]
+
+
+def composite_record_values(line, frmt):
+    fields = {}
+    for field in frmt['fields']:
+        fields[field['field']] = {
+            "value": record_value(line, field)
+        }
+    return {
+        "label": frmt['label'],
+        "fields": fields
+    }
+
+
 def parse_record(line, format_data_):
-    record = dict()
-    for frmt in format_data_:
-        if frmt.get('until'):
-            record[frmt['field']] = line[frmt['begin']:frmt['until']]
-        else:
-            record[frmt['field']] = line[frmt['begin']]
+    frmt = None
+    try:
+        record = dict()
+        for frmt in format_data_:
+            if frmt.get('composite'):
+                key = '#' + frmt['composite']['label']
+                record[key] = composite_record_values(line,
+                                                      frmt['composite'])
+            else:
+                record[frmt['field']] = {
+                    "value": record_value(line, frmt)
+                }
+    except TypeError as e:
+        print(e)
+        print(frmt)
+        record = None
     return record
 
 
 def parse_line(line):
     record = parse_record(line, format_data['general'])
-    record['extra'] = parse_record(line, format_data[record['type']])
+    record['extra'] = parse_record(line, format_data[record['type']['value']])
     return record
 
 
@@ -38,7 +67,9 @@ def parse(lines):
             add_meta(line[2:], data)
         else:
             # parse record to use in the edit box in the form
-            data['records'].append(parse_line(line))
+            record = parse_line(line)
+            if record:
+                data['records'].append(parse_line(line))
     return data
 
 

@@ -24,6 +24,9 @@
         input {
             font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
         }
+        input.little {
+            width: 40px;
+        }
     </style>
 </head>
 <body>
@@ -38,30 +41,68 @@
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
-        <h3>{{ record.type }}</h3>
+        <h3>{{ record.type.value }}</h3>
         <table>{% for field in record %}
+            <tr>
             {% if field != 'extra' %}
-            <tr>
-                <td>{{ field }} ({{ record[field]|length }})</td>
+                {% if field|first == '#' %}
+                    {% set cmp = record[field] %}
+                    <td><label>{{ cmp.label }}</label></td>
+                    <td>
+                    {% for f in cmp.fields %}
+                        {% set value = cmp.fields[f].value %}
+                        <input type="text" value="{{ value }}"
+                               class="little"
+                               minlength="{{ value|length }}"
+                               maxlength="{{ value|length }}"
+                               name="{{ record.type.value }}.{{ f }}"
+                               title="value">
+                    {% endfor %}
+                    </td>
+                {% else %}
+                {%  set value = record[field].value %}
+                <td><label for="input1">{{ field }} ({{ value|length }})</label></td>
                 <td>
-                    <input type="text" value="{{ record[field] }}"
-                           minlength="{{ record[field]|length }}"
-                           maxlength="{{ record[field]|length }}"
-                           name="{{ record.type }}.{{ field }}">
+                    <input type="text"
+                           value="{{ value }}"
+                           minlength="{{ value|length }}"
+                           maxlength="{{ value|length }}"
+                           name="{{ record.type.value }}.{{ field }}"
+                           id="input1">
                 </td>
-            </tr>
+                {% endif %}
             {% endif %}
+            </tr>
         {% endfor %}</table>
-        <h3>{{ record.type }}: special</h3>
+        <h3>{{ record.type.value }}: special</h3>
         <table>{% for field in record.extra %}
+            {%  set value = record.extra[field].value %}
             <tr>
-                <td>{{ field }} ({{ record.extra[field]|length }})</td>
+                {% if field|first == '#' %}
+                    {% set cmp = record.extra[field] %}
+                    <td><label>{{ cmp.label }}</label></td>
+                    <td>
+                    {% for f in cmp.fields %}
+                        {% set value = cmp.fields[f].value %}
+                        <input type="text" value="{{ value }}"
+                               class="little"
+                               minlength="{{ value|length }}"
+                               maxlength="{{ value|length }}"
+                               name="{{ record.type.value }}.{{ f }}"
+                               title="value">
+                    {% endfor %}
+                    </td>
+                {% else %}
+                <td><label for="input2">{{ field }} ({{ record.extra[field]|length }})</label></td>
                 <td>
-                    <input type="text" value="{{ record.extra[field] }}"
-                           minlength="{{ record.extra[field]|length }}"
-                           maxlength="{{ record.extra[field]|length }}"
-                           name="{{ record.type }}.{{ field }}">
+                    <input type="text"
+                           value="{{ value }}"
+                           minlength="{{ value|length }}"
+                           maxlength="{{ value|length }}"
+                           name="{{ record.type }}.{{ field }}"
+                           id="input2">
                 </td>
+                {% endif %}
             </tr>
         {% endfor %}</table>
         </div>
