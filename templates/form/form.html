@@ -19,9 +19,9 @@
         <table>{% for field in record %}
             <tr>
                 {% if field|first == '#' %}
-                    {% include 'form/composite.j2' %}
+                    {% include 'form/composite.html' %}
                 {% else %}
-                    {% include 'form/simple.j2' %}
+                    {% include 'form/simple.html' %}
                 {% endif %}
             </tr>
         {% endfor %}</table>

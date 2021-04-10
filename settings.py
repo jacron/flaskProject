@@ -1,12 +1,12 @@
 # testing this app? use own sample_exchange dir
-# as not to spoil improtant test files
+# as not to spoil important test files
 sampledir = '/Users/orion/Dev/klanten/wur/frisbe_import/sample_exchange_files/'
 # sampledir = 'sample_exchange_files/'
 
+meta_lines = []
+
 format_data = {
-    'meta_lines': [],
     'general': [
-        # fieldname, begin, [until], [alignment]
         {
             "field": "type",
             "begin": 0,

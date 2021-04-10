@@ -1,10 +1,10 @@
 {%  set value = record[field].value %}
-<td><label for="input1">{{ field }} ({{ value|length }})</label></td>
+<td>{{ field }} ({{ value|length }})</td>
 <td>
     <input type="text"
            value="{{ value }}"
            minlength="{{ value|length }}"
            maxlength="{{ value|length }}"
            name="{{ record.type.value }}.{{ field }}"
-           id="input1">
+           title="{{ field }}">
 </td>

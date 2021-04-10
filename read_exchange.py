@@ -1,4 +1,4 @@
-from settings import format_data, sampledir
+from settings import format_data, sampledir, meta_lines
 
 
 def add_meta(line, data):
@@ -62,7 +62,7 @@ def parse(lines):
     for line in lines:
         if line.startswith('#'):
             # save meta-line for writing to the output file
-            format_data['meta_lines'].append(line)
+            meta_lines.append(line)
             # parse some info to display in the page header
             add_meta(line[2:], data)
         else:
