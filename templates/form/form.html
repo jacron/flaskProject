@@ -1,4 +1,4 @@
-{%  extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Edit Exchange file {{ title }}{% endblock %}
 {% block css %}
     <link href="/static/form.css" rel="stylesheet">
@@ -11,7 +11,7 @@
     <h3>{{ data.CI }}</h3>
     <hr>
     <form method="post">
-    <input type="submit" value="save changes" class="header-submit">
+    {% include 'form/save.j2' %}
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
@@ -19,16 +19,16 @@
         <table>{% for field in record %}
             <tr>
                 {% if field|first == '#' %}
-                    {% include 'composite.j2' %}
+                    {% include 'form/composite.j2' %}
                 {% else %}
-                    {% include 'simple.j2' %}
+                    {% include 'form/simple.j2' %}
                 {% endif %}
             </tr>
         {% endfor %}</table>
         </div>
     {% endfor %}
     </div>
-    <input type="submit" value="save changes" class="header-submit">
+    {% include 'form/save.j2' %}
     <br>
     <hr>
     </form>

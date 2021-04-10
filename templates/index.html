@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Exchange Files</title>
-    <style>
-        body {
-            background-color: #aef;
-        }
-        li {
-            list-style: none;
-            line-height: 1.7;
-            font-size: large;
-        }
-        a {
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Edit Exchange Files{% endblock %}
+{% block css %}
+    <link href="/static/index.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
 <h1>Edit Exchange Files</h1>
 <ul>
     {% for name in names %}
@@ -29,5 +12,4 @@
       </li>
     {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}

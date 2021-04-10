@@ -24,7 +24,7 @@ def read(filename):
     if request.method == 'POST':
         write_exchange(request.form, filename)
         data = read_exchange(filename)
-    return render_template('form.html', title=filename, data=data)
+    return render_template('form/form.html', title=filename, data=data)
 
 
 if __name__ == '__main__':
