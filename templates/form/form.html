@@ -10,13 +10,12 @@
         <br>
     {{ data.CI }}
     </p>
-    <hr>
     <form method="post">
     {% include 'form/save.j2' %}
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
-        <h3>{{ record.type.value }}</h3>
+        <div class="type-header">{{ record.type.value }}</div>
         <table>{% for field in record %}
             <tr>
                 {% if field|first == '#' %}
@@ -31,6 +30,5 @@
     </div>
     {% include 'form/save.j2' %}
     <br>
-    <hr>
     </form>
 {% endblock %}

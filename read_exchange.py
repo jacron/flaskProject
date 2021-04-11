@@ -11,6 +11,11 @@ def add_meta(line, data):
 
 
 def record_value(line, frmt):
+    if len(line) < frmt['begin'] + 2:
+        if frmt.get('until'):
+            return ' ' * (frmt['until'] - frmt['begin'])
+        else:
+            return ' '
     if frmt.get('until'):
         return line[frmt['begin']:frmt['until']]
     else:

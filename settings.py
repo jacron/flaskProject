@@ -137,25 +137,32 @@ format_data = {
             "max": 30.9,
         },
         {
-            "field": "tidal_phase",
-            "begin": 122,
-            "until": 126,
-            "min": 0.0,
-            "max": 12.9,
-            "min_inclusive": True,
-            "max_inclusive": True,
-        },
-        {
-            "field": "tide_direction",
-            "begin": 126,
-            "until": 129,
-        },
-        {
-            "field": "tide_speed",
-            "begin": 129,
-            "until": 132,
-            "min": 0.0,
-            "max": 12.9,
+            "composite": {
+                "label": "tide",
+                "fields": [
+                    {
+                        "field": "tidal_phase",
+                        "begin": 122,
+                        "until": 126,
+                        "min": 0.0,
+                        "max": 12.9,
+                        "min_inclusive": True,
+                        "max_inclusive": True,
+                    },
+                    {
+                        "field": "tide_direction",
+                        "begin": 126,
+                        "until": 129,
+                    },
+                    {
+                        "field": "tide_speed",
+                        "begin": 129,
+                        "until": 132,
+                        "min": 0.0,
+                        "max": 12.9,
+                    },
+                ]
+            }
         },
         {
             "field": "water_visibility",
@@ -172,18 +179,25 @@ format_data = {
             "max": 99,
         },
         {
-            "field": "wind_direction",
-            "begin": 138,
-            "until": 141,
-            "min": 0,
-            "max": 359,
-        },
-        {
-            "field": "wind_force",
-            "begin": 141,
-            "until": 146,
-            "min": 0.0,
-            "max": 199.9,
+            "composite": {
+                "label": "wind",
+                "fields": [
+                    {
+                        "field": "wind_direction",
+                        "begin": 138,
+                        "until": 141,
+                        "min": 0,
+                        "max": 359,
+                    },
+                    {
+                        "field": "wind_force",
+                        "begin": 141,
+                        "until": 146,
+                        "min": 0.0,
+                        "max": 199.9,
+                    },
+                ]
+            }
         },
         {
             "field": "distance_to_shore",

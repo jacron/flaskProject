@@ -4,5 +4,10 @@ li {
     font-size: large;
 }
 .path {
-    width: 500px;
+    width: calc(100% - 8px);
+}
+.path-form {
+    border: 1px solid #aaf;
+    border-radius: 5px;
+    padding: 5px;
 }
