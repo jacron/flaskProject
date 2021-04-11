@@ -1,5 +1,5 @@
 {% set cmp = record[field] %}
-<td>
+<td class="label">
     {% if not cmp.nullable %}
     *
     {% endif %}
@@ -15,6 +15,6 @@
            minlength="{{ len }}"
            maxlength="{{ len }}"
            name="{{ record.type.value }}.{{ f }}"
-           title="{{ f }} ({{ len }})">
+           title="{{ f }}">
 {% endfor %}
 </td>

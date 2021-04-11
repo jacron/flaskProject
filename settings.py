@@ -66,18 +66,26 @@ format_data = {
             "until": 73,
         },
         {
-            "field": "pgm_code",  # program
-            "begin": 73,
-            "until": 81,
-            "nullable": False
-        },
-        {
-            "field": "pgm_version_number", # program_version
-            "begin": 81,
-            "until": 85,
-            "min": -9.9,
-            "max": 99.9,
-            "nullable": False
+            "composite": {
+                "label": "program",
+                "nullable": False,
+                "fields": [
+                    {
+                        "field": "pgm_code",  # program
+                        "begin": 73,
+                        "until": 81,
+                        "nullable": False
+                    },
+                    {
+                        "field": "pgm_version_number",  # program_version
+                        "begin": 81,
+                        "until": 85,
+                        "min": -9.9,
+                        "max": 99.9,
+                        "nullable": False
+                    },
+                ]
+            }
         },
         {
             "field": "platform_code",

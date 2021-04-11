@@ -3,7 +3,7 @@
     flex-wrap: wrap;
 }
 .column:not(:first-child) {
-    margin-left: 14px;
+    margin-left: 28px;
 }
 input[type=submit] {
     font-size: 20px;
@@ -17,4 +17,7 @@ input {
 }
 input.little {
     width: 40px;
+}
+td.label {
+    padding-right: 5px;
 }

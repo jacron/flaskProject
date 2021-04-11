@@ -4,7 +4,6 @@
     <link href="/static/index.css" rel="stylesheet">
 {% endblock %}
 {% block body %}
-<h1>Edit Exchange Files</h1>
     <form method="post" action="/setpath">
         <label for="input1">Path to exchange files:</label>
         <p>
@@ -13,11 +12,11 @@
         </p>
         <input type="submit" value="save">
     </form>
-<ul>
-    {% for name in names %}
-      <li>
-          <a href="exchange/{{ name }}">{{ name }}</a>
-      </li>
-    {% endfor %}
-</ul>
+    <ul>
+        {% for name in names %}
+          <li>
+              <a href="exchange/{{ name }}">{{ name }}</a>
+          </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

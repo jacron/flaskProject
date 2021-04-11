@@ -5,10 +5,11 @@
 {% endblock %}
 {% block body %}
     <a href="/">Home</a>
-    <h1>Exchange file editor</h1>
     <h2>{{ title }}</h2>
-    <h3>{{ data.Version }}</h3>
-    <h3>{{ data.CI }}</h3>
+    <p>{{ data.Version }}
+        <br>
+    {{ data.CI }}
+    </p>
     <hr>
     <form method="post">
     {% include 'form/save.j2' %}
