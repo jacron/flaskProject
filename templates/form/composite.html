@@ -3,11 +3,13 @@
 <td>
 {% for f in cmp.fields %}
     {% set value = cmp.fields[f].value %}
-    <input type="text" value="{{ value }}"
-           class="little"
-           minlength="{{ value|length }}"
-           maxlength="{{ value|length }}"
+    {% set len = value|length %}
+    <input type="text"
+           value="{{ value }}"
+           size="{{ len }}"
+           minlength="{{ len }}"
+           maxlength="{{ len }}"
            name="{{ record.type.value }}.{{ f }}"
-           title="{{ f }}">
+           title="{{ f }} ({{ len }})">
 {% endfor %}
 </td>
