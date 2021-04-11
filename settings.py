@@ -1,8 +1,8 @@
-# testing this app? use own sample_exchange dir
-# as not to spoil important test files
 sampledir = '/Users/orion/Dev/klanten/wur/frisbe_import/sample_exchange_files/'
 # sampledir = 'sample_exchange_files/'
+# sampledir = '/Volumes/frisbep/ont/import'
 
+cookie_path_name = 'exchange_path'
 meta_lines = []
 
 

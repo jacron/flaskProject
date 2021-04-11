@@ -1,23 +1,20 @@
-    body {
-        background-color: #aef;
-    }
-    .tables {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .column:not(:first-child) {
-        margin-left: 14px;
-    }
-    input[type=submit] {
-        font-size: 20px;
-    }
-    .header-submit {
-        position: absolute;
-        right: 20px;
-    }
-    input {
-        font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-    }
-    input.little {
-        width: 40px;
-    }
+.tables {
+    display: flex;
+    flex-wrap: wrap;
+}
+.column:not(:first-child) {
+    margin-left: 14px;
+}
+input[type=submit] {
+    font-size: 20px;
+}
+.header-submit {
+    position: absolute;
+    right: 20px;
+}
+input {
+    font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+}
+input.little {
+    width: 40px;
+}

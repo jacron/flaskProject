@@ -1,14 +1,8 @@
-body {
-    background-color: #aef;
-}
 li {
     list-style: none;
     line-height: 1.7;
     font-size: large;
 }
-a {
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
+.path {
+    width: 500px;
 }

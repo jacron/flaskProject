@@ -5,6 +5,14 @@
 {% endblock %}
 {% block body %}
 <h1>Edit Exchange Files</h1>
+    <form method="post" action="/setpath">
+        <label for="input1">Path to exchange files</label>
+        <p>
+        <input type="text" id="input1" name="exchange_path"
+               class="path" value="{{ path }}">
+        </p>
+        <input type="submit" value="save">
+    </form>
 <ul>
     {% for name in names %}
       <li>
