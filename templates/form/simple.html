@@ -1,5 +1,10 @@
 {%  set value = record[field].value %}
-<td>{{ field }} ({{ value|length }})</td>
+<td>
+    {% if not record[field].nullable %}
+    *
+    {% endif %}
+    {{ field }} ({{ value|length }})
+</td>
 <td>
     {% set len = value|length %}
     <input type="text"
@@ -8,5 +13,8 @@
            minlength="{{ len }}"
            maxlength="{{ len }}"
            name="{{ record.type.value }}.{{ field }}"
+           {% if field == 'type' %}
+            disabled="disabled"
+           {% endif %}
            title="{{ field }}">
 </td>

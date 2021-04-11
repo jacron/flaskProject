@@ -23,9 +23,24 @@ def composite_record_values(line, frmt):
         fields[field['field']] = {
             "value": record_value(line, field)
         }
+    nullable = frmt.get('nullable', True)
     return {
         "label": frmt['label'],
+        "nullable": nullable,
         "fields": fields
+    }
+
+
+def composite_record(record, line, frmt):
+    key = '#' + frmt['composite']['label']
+    record[key] = composite_record_values(line, frmt['composite'])
+
+
+def simple_record(record, line, frmt):
+    nullable = frmt.get('nullable', True)
+    record[frmt['field']] = {
+        "value": record_value(line, frmt),
+        "nullable": nullable
     }
 
 
@@ -35,13 +50,9 @@ def parse_record(line, format_data_):
         record = dict()
         for frmt in format_data_:
             if frmt.get('composite'):
-                key = '#' + frmt['composite']['label']
-                record[key] = composite_record_values(line,
-                                                      frmt['composite'])
+                composite_record(record, line, frmt)
             else:
-                record[frmt['field']] = {
-                    "value": record_value(line, frmt)
-                }
+                simple_record(record, line, frmt)
     except TypeError as e:
         print(e)
         print(frmt)

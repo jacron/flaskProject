@@ -1,5 +1,10 @@
 {% set cmp = record[field] %}
-<td><label>{{ cmp.label }}</label></td>
+<td>
+    {% if not cmp.nullable %}
+    *
+    {% endif %}
+    {{ cmp.label }}
+</td>
 <td>
 {% for f in cmp.fields %}
     {% set value = cmp.fields[f].value %}

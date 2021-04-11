@@ -28,6 +28,7 @@ format_data = {
         {
             "composite": {
                 "label": "date",
+                "nullable": False,
                 "fields": [
                     {
                         "field": "year",
@@ -63,21 +64,20 @@ format_data = {
             "field": "time_accuracy",
             "begin": 64,
             "until": 73,
-            "nullable": True,
         },
         {
-            "field": "pgm_code",
+            "field": "pgm_code",  # program
             "begin": 73,
             "until": 81,
-            "nullable": False,
+            "nullable": False
         },
         {
-            "field": "pgm_version_number",
+            "field": "pgm_version_number", # program_version
             "begin": 81,
             "until": 85,
-            "nullable": True,
             "min": -9.9,
             "max": 99.9,
+            "nullable": False
         },
         {
             "field": "platform_code",
@@ -104,14 +104,12 @@ format_data = {
             "until": 108,
             "min": -99.9,
             "max": 99.9,
-            "nullable": True,
         },
         {
             "field": "cloud_cover",
             "begin": 108,
             "min": 0,
             "max": 8,
-            "nullable": True
         },
         {
             "field": "salinity_factor",
@@ -129,7 +127,6 @@ format_data = {
             "until": 122,
             "min": 0.0,
             "max": 30.9,
-            "nullable": True,
         },
         {
             "field": "tidal_phase",
@@ -139,7 +136,6 @@ format_data = {
             "max": 12.9,
             "min_inclusive": True,
             "max_inclusive": True,
-            "nullable": True,
         },
         {
             "field": "tide_direction",
@@ -152,7 +148,6 @@ format_data = {
             "until": 132,
             "min": 0.0,
             "max": 12.9,
-            "nullable": True,
         },
         {
             "field": "water_visibility",
@@ -160,7 +155,6 @@ format_data = {
             "until": 136,
             "min": 0.0,
             "max": 99.9,
-            "nullable": True
         },
         {
             "field": "wheater_code",
@@ -168,7 +162,6 @@ format_data = {
             "until": 137,
             "min": 0,
             "max": 99,
-            "nullable": True,
         },
         {
             "field": "wind_direction",
@@ -176,7 +169,6 @@ format_data = {
             "until": 141,
             "min": 0,
             "max": 359,
-            "nullable": True,
         },
         {
             "field": "wind_force",
@@ -184,7 +176,6 @@ format_data = {
             "until": 146,
             "min": 0.0,
             "max": 199.9,
-            "nullable": True,
         },
         {
             "field": "distance_to_shore",
@@ -207,6 +198,7 @@ format_data = {
         {
             "composite": {
                 "label": "landing",
+                "nullable": True,
                 "fields": [
                     {
                         "field": "landing_year",
@@ -229,7 +221,7 @@ format_data = {
     ],
     'Pn': [
         {
-            "field": "number",
+            "field": "number",  # seq_no
             "begin": 41,
             "until": 64,
             "min": 0,
@@ -319,11 +311,13 @@ format_data = {
             "field": "initials",
             "begin": 64,
             "until": 67,
+            "nullable": False
         },
         {
             "field": "function",
             "begin": 67,
             "until": 97,
+            "nullable": False
         },
     ]
 }
