@@ -4,7 +4,6 @@
     *
     {% endif %}
     {{ field }}
-{#    ({{ value|length }})#}
 </td>
 <td>
     {% set len = value|length %}
@@ -17,5 +16,5 @@
            {% if field == 'type' %}
             disabled="disabled"
            {% endif %}
-           title="{{ field }}">
+           title="{{ field }} ({{ len }})">
 </td>

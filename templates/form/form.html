@@ -5,13 +5,16 @@
 {% endblock %}
 {% block body %}
     <a href="/">Home</a>
-    <h2>{{ title }}</h2>
-    <p>{{ data.Version }}
-        <br>
-    {{ data.CI }}
-    </p>
+    <div class="editor-header">
+        <h2>{{ title }}</h2>
+        <p>{{ data.Version }}
+            <br>
+        {{ data.CI }}
+        </p>
+    </div>
     <form method="post">
     {% include 'form/save.j2' %}
+        <p>&nbsp;</p>
     <div class="tables">
     {% for record in data.records %}
         <div class="column">

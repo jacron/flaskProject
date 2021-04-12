@@ -2,13 +2,14 @@
     display: flex;
     flex-wrap: wrap;
 }
-.column:not(:first-child) {
+.column {
     margin-left: 14px;
 }
 .column {
     border: 1px solid #aaf;
     border-radius: 5px;
     padding: 6px;
+    margin-bottom: 14px;
 }
 input[type=submit] {
     font-size: 16px;
@@ -31,4 +32,7 @@ td.label {
     text-align: center;
     font-weight: bold;
     margin-bottom: 8px;
+}
+.editor-header {
+    margin: 14px;
 }
