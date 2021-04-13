@@ -269,12 +269,12 @@ format_data = {
                         "begin": 68,
                         "until": 72,
                     },
+                    {
+                        "field": "north_south",
+                        "begin": 72,
+                    },
                 ]
             }
-        },
-        {
-            "field": "north_south",
-            "begin": 72,
         },
         {
             "composite": {
@@ -295,12 +295,12 @@ format_data = {
                         "begin": 78,
                         "until": 82,
                     },
+                    {
+                        "field": "east_west",
+                        "begin": 82,
+                    },
                 ]
             }
-        },
-        {
-            "field": "east_west",
-            "begin": 82,
         },
         {
             "composite": {
