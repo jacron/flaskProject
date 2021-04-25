@@ -49,7 +49,7 @@ def get_form_output(form):
 
 def write_exchange(form, filename):
     output_data = get_form_output(form)
-    lines = meta_lines + output_lines(output_data)
+    lines = meta_lines[:-1] + output_lines(output_data) + [meta_lines[-1]]
     fle = sampledir + filename + '.edited.bl8'
     with open(fle, "w+") as fp:
         fp.writelines(lines)

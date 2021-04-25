@@ -1,35 +1,15 @@
-import xmltodict as xmltodict
 
-exchange_defs = {
-    '6': './defs/fexchange-v6.xml',
-    '7': './defs/fexchange-v7.xml'
-}
-field_defs = {
-    '6': './defs/field-defs-v6.xml',
-    '7': './defs/field-defs-v7.xml'
-}
+from lib.exchange import get_version, get_exchange_def, get_field_def, \
+    get_record_def_by_code
 
 
-def get_exchange_def(version):
-    def_ = exchange_defs.get(version)
-    if not def_:
-        return None
-    with open(def_, 'rb') as fp:
-        return xmltodict.parse(fp)
-
-
-def get_field_def(version):
-    def_ = field_defs.get(version)
-    if not def_:
-        return None
-    with open(def_, 'rb') as fp:
-        return xmltodict.parse(fp)
-
-
-def get_record_def(code, def_):
-    for rec in def_['records']['record']:
-        if rec['@code'] == code:
-            return rec['field']
+def add_meta(line, data):
+    prefix = '$Vn: '
+    if line.startswith(prefix):
+        data['Version'] = line[len(prefix):]
+    prefix = '$NR: '
+    if line.startswith(prefix):
+        data['CI'] = line[len(prefix):]
 
 
 def get_f_def(field_defs_, name):
@@ -79,32 +59,36 @@ def parse_line(line, record_def, field_defs_):
 
 def get_record_type_def(line, def_):
     code_ = line[:2]
-    record_def = get_record_def(code_, def_)
+    record_def = get_record_def_by_code(code_, def_)
     return record_def
 
 
-def parse(lines, version):
+def add_to_meta_lines(lines, data):
+    for line in lines:
+        if line.startswith('#'):
+            # parse some info to display in the page header
+            add_meta(line[2:], data)
+
+
+def add_to_records(lines, data, version):
     def_ = get_exchange_def(version)
     field_defs_ = get_field_def(version)
-    data = dict()
-    data['records'] = []
     for line in lines:
         if not line.startswith('#'):
             record_def = get_record_type_def(line, def_)
             record = parse_line(line.strip(), record_def, field_defs_)
             if record:
                 data['records'].append(record)
+
+
+def parse(lines, version):
+    # clear_meta_lines()
+    data = dict()
+    data['version'] = version
+    data['records'] = []
+    add_to_meta_lines(lines, data)
+    add_to_records(lines, data, version)
     return data
-
-
-def get_version(lines):
-    version_prefix = '# $Vn: Exchange Format '
-    len_pre = len(version_prefix)
-    for line in lines:
-        lstripped = line.strip()
-        if lstripped.startswith(version_prefix):
-            return lstripped[len_pre:]
-    return None
 
 
 def read_exchange_new(filename, dir_):
