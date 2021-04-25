@@ -1,4 +1,4 @@
-from settings import format_data, sampledir, meta_lines, clear_meta_lines
+from settings import format_data, meta_lines, clear_meta_lines
 
 
 def add_meta(line, data):
@@ -85,12 +85,12 @@ def parse(lines):
             # parse record to use in the edit box in the form
             record = parse_line(line)
             if record:
-                data['records'].append(parse_line(line))
+                data['records'].append(record)
     return data
 
 
-def read_exchange(filename):
-    with open(sampledir + filename) as fp:
+def read_exchange(filename, dir_):
+    with open(dir_ + filename) as fp:
         lines = fp.readlines()
         data = parse(lines)
     return data

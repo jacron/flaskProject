@@ -1,20 +1,23 @@
 {%  set value = record[field].value %}
 <td class="label">
-    {% if not record[field].nullable %}
-    *
-    {% endif %}
+{#    {% if not record[field].nullable %}#}
+{#    *#}
+{#    {% endif %}#}
     {{ field }}
 </td>
 <td>
-    {% set len = value|length %}
-    <input type="text"
+    {% set len = record[field].length %}
+    {% set name = record.type.value + '.' + field %}
+    <input
+            type="{{ record[field].type }}"
+           style="text-align: {{ record[field].alignment }}"
            value="{{ value }}"
            size="{{ len }}"
            minlength="{{ len }}"
            maxlength="{{ len }}"
-           name="{{ record.type.value }}.{{ field }}"
+           name="{{ name }}"
            {% if field == 'type' %}
             disabled="disabled"
            {% endif %}
-           title="{{ field }} ({{ len }})">
+           title="{{ name }} ({{ len }})">
 </td>
