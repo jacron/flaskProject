@@ -1,3 +1,4 @@
+import json
 
 from lib.exchange import get_version, get_exchange_def, get_field_def, \
     get_record_def_by_code
@@ -36,7 +37,7 @@ def get_field(rec, field_defs_, line):
         if field_def.get('alignment') == 'left':
             alignment_ = 'left'
         return {
-            'value': lin,
+            'value': lin.strip(),
             'length': field_length,
             'type': type_,
             'alignment': alignment_
@@ -70,9 +71,7 @@ def add_to_meta_lines(lines, data):
             add_meta(line[2:], data)
 
 
-def add_to_records(lines, data, version):
-    def_ = get_exchange_def(version)
-    field_defs_ = get_field_def(version)
+def add_to_records(lines, data, def_, field_defs_):
     for line in lines:
         if not line.startswith('#'):
             record_def = get_record_type_def(line, def_)
@@ -81,13 +80,45 @@ def add_to_records(lines, data, version):
                 data['records'].append(record)
 
 
+def create_json(field_defs_):
+    data = dict()
+    for field in field_defs_['fields']['field']:
+        name_parts = field['name'].split('/')
+        if len(name_parts) > 1:
+            type_ = name_parts[0]
+            typedef = field['typedef']
+            if field['typedef'] == 'num':
+                if field['precision'] == '0':
+                    typedef = 'int'
+                else:
+                    typedef = 'float'
+            if type_ not in data:
+                data[type_] = dict()
+                data[type_]['type'] = type_
+                data[type_]['table'] = ""
+                data[type_]['validators'] = []
+            data[type_]['validators'].append({
+                "field": name_parts[1],
+                "column": name_parts[1].upper(),
+                "typedef": typedef,
+                "length": field['length'],
+            })
+    with open('data.json', 'w') as fp:
+        json.dump(data, fp)
+    pass
+
+
 def parse(lines, version):
     # clear_meta_lines()
     data = dict()
     data['version'] = version
     data['records'] = []
     add_to_meta_lines(lines, data)
-    add_to_records(lines, data, version)
+    def_ = get_exchange_def(version)
+    field_defs_ = get_field_def(version)
+    # run once: create
+    create_json(field_defs_)
+    add_to_records(lines, data, def_, field_defs_)
     return data
 
 
