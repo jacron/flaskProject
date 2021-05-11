@@ -1,10 +1,8 @@
 from flask import Flask, render_template, request, make_response
 
 from get_files import get_exchange_files
-from read_exchange import read_exchange
 from read_exchange_new import read_exchange_new
 from settings import sampledir, cookie_path_name
-from write_exchange import write_exchange
 from write_exchange_new import write_exchange_new
 
 app = Flask(__name__)
@@ -29,14 +27,9 @@ def index_page():
 @app.route('/exchange/<filename>', methods=['POST', 'GET'])
 def read(filename):
     path = request.cookies.get(cookie_path_name) or sampledir
-
-    # nieuwe aanpak volgens het boekje c.q. def files
     data = read_exchange_new(filename, path)
-
-    # data = read_exchange(filename, path)
     if request.method == 'POST':
         write_exchange_new(request.form, filename, path)
-        # data = read_exchange(filename)
         data = read_exchange_new(filename, path)
     return render_template('form/form.html', title=filename, data=data)
 

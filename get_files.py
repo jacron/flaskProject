@@ -12,4 +12,4 @@ def get_exchange_files(request):
     for file in files:
         if file.endswith('.bl8'):
             names.append(file)
-    return names
+    return sorted(names)

@@ -7,19 +7,23 @@
     <a href="/">Home</a>
     <div class="editor-header">
         <h2>{{ title }}</h2>
-        <p>{{ data.Version }}
+        <p>Type of file:{{ data.meta.Ty }}
             <br>
-        {{ data.CI }}
+            {{ data.meta.Vn }}
+            <br>
+            {{ data.meta.Cl }}
+            <br>
+        {{ data.meta.NR }}
         </p>
     </div>
     <form method="post">
-    <input type="hidden" name="version" value="{{ data.version }}">
+    <input type="hidden" name="version" value="{{ data.meta.Vn }}">
     {% include 'form/save.j2' %}
         <p>&nbsp;</p>
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
-        <div class="type-header">{{ record.type.value }}</div>
+        <div class="type-header">{{ record.name }}</div>
         <table>{% for field in record %}
             <tr>
                 {% if field|first == '#' %}

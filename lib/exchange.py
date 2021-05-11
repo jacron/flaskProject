@@ -10,6 +10,24 @@ field_defs = {
     '7': './defs/field-defs-v7.xml'
 }
 
+names = {
+    'St': 'Station',
+    'Pn': 'Position',
+    'Cm': 'Crew Member',
+    'CT': 'CTD Measurement',
+    'Sh': 'Sample Habitat',
+    'Hl': 'Haul',
+    'Gu': 'Gear Usage',
+    'Ss': 'Subsample',
+    'Cl': 'Class',
+    'Ov': 'Other Value',
+    'Di': 'Disease Diagnosis',
+    'Ag': 'Age',
+    'Af': 'Age Feature',
+    'Sm': 'Stomach',
+    'Re': 'Tag action/Release',
+}
+
 
 def get_version(lines):
     version_prefix = '# $Vn: Exchange Format '
