@@ -1,1 +1,806 @@
-{"St": {"type": "St", "table": "", "validators": [{"field": "code", "column": "CODE", "typedef": "char", "length": "7"}, {"field": "date", "column": "DATE", "typedef": "char", "length": "8"}, {"field": "time", "column": "TIME", "typedef": "char", "length": "4"}, {"field": "time_accuracy", "column": "TIME_ACCURACY", "typedef": "int", "length": "9"}, {"field": "program", "column": "PROGRAM", "typedef": "char", "length": "8"}, {"field": "program_version", "column": "PROGRAM_VERSION", "typedef": "float", "length": "4"}, {"field": "vessel", "column": "VESSEL", "typedef": "char", "length": "10"}, {"field": "country", "column": "COUNTRY", "typedef": "char", "length": "3"}, {"field": "area_code", "column": "AREA_CODE", "typedef": "char", "length": "4"}, {"field": "quarter", "column": "QUARTER", "typedef": "int", "length": "1"}, {"field": "air_temperature", "column": "AIR_TEMPERATURE", "typedef": "float", "length": "5"}, {"field": "cloud_cover", "column": "CLOUD_COVER", "typedef": "int", "length": "1"}, {"field": "salinity_factor", "column": "SALINITY_FACTOR", "typedef": "float", "length": "6"}, {"field": "swell_direction", "column": "SWELL_DIRECTION", "typedef": "int", "length": "3"}, {"field": "swell_height", "column": "SWELL_HEIGHT", "typedef": "float", "length": "4"}, {"field": "tidal_phase", "column": "TIDAL_PHASE", "typedef": "float", "length": "4"}, {"field": "tide_direction", "column": "TIDE_DIRECTION", "typedef": "int", "length": "3"}, {"field": "tide_speed", "column": "TIDE_SPEED", "typedef": "float", "length": "3"}, {"field": "water_visibility", "column": "WATER_VISIBILITY", "typedef": "float", "length": "4"}, {"field": "weather_code", "column": "WEATHER_CODE", "typedef": "int", "length": "2"}, {"field": "wind_direction", "column": "WIND_DIRECTION", "typedef": "int", "length": "3"}, {"field": "wind_force", "column": "WIND_FORCE", "typedef": "float", "length": "5"}, {"field": "distance_to_shore", "column": "DISTANCE_TO_SHORE", "typedef": "int", "length": "8"}, {"field": "stratum", "column": "STRATUM", "typedef": "char", "length": "4"}, {"field": "day_night", "column": "DAY_NIGHT", "typedef": "char", "length": "1"}, {"field": "landing_date", "column": "LANDING_DATE", "typedef": "char", "length": "8"}]}, "Pn": {"type": "Pn", "table": "", "validators": [{"field": "seq_no", "column": "SEQ_NO", "typedef": "int", "length": "3"}, {"field": "latitude", "column": "LATITUDE", "typedef": "char", "length": "9"}, {"field": "longitude", "column": "LONGITUDE", "typedef": "char", "length": "10"}, {"field": "positioning_method", "column": "POSITIONING_METHOD", "typedef": "char", "length": "1"}, {"field": "positioning_accuracy", "column": "POSITIONING_ACCURACY", "typedef": "int", "length": "8"}, {"field": "position_type", "column": "POSITION_TYPE", "typedef": "char", "length": "1"}, {"field": "water_depth", "column": "WATER_DEPTH", "typedef": "float", "length": "6"}]}, "Cm": {"type": "Cm", "table": "", "validators": [{"field": "persons", "column": "PERSONS", "typedef": "char", "length": "3"}, {"field": "function", "column": "FUNCTION", "typedef": "char", "length": "30"}]}, "CT": {"type": "CT", "table": "", "validators": [{"field": "depth", "column": "DEPTH", "typedef": "float", "length": "6"}, {"field": "temperature", "column": "TEMPERATURE", "typedef": "float", "length": "5"}, {"field": "conductivity", "column": "CONDUCTIVITY", "typedef": "float", "length": "6"}, {"field": "oxygen", "column": "OXYGEN", "typedef": "float", "length": "4"}, {"field": "ph", "column": "PH", "typedef": "float", "length": "4"}, {"field": "turbidity", "column": "TURBIDITY", "typedef": "int", "length": "4"}, {"field": "ctd_type", "column": "CTD_TYPE", "typedef": "char", "length": "1"}, {"field": "salinity", "column": "SALINITY", "typedef": "float", "length": "6"}]}, "Sh": {"type": "Sh", "table": "", "validators": [{"field": "description", "column": "DESCRIPTION", "typedef": "char", "length": "20"}, {"field": "percentage", "column": "PERCENTAGE", "typedef": "int", "length": "3"}]}, "Hl": {"type": "Hl", "table": "", "validators": [{"field": "seq_no", "column": "SEQ_NO", "typedef": "int", "length": "7"}, {"field": "bottom_track", "column": "BOTTOM_TRACK", "typedef": "int", "length": "5"}, {"field": "water_track", "column": "WATER_TRACK", "typedef": "int", "length": "5"}, {"field": "direction", "column": "DIRECTION", "typedef": "int", "length": "3"}, {"field": "duration", "column": "DURATION", "typedef": "float", "length": "9"}, {"field": "valid", "column": "VALID", "typedef": "char", "length": "1"}, {"field": "missing_taxon", "column": "MISSING_TAXON", "typedef": "char", "length": "1"}, {"field": "weight", "column": "WEIGHT", "typedef": "float", "length": "13"}, {"field": "conservation", "column": "CONSERVATION", "typedef": "char", "length": "1"}, {"field": "handling", "column": "HANDLING", "typedef": "char", "length": "1"}, {"field": "rotations_ifm", "column": "ROTATIONS_IFM", "typedef": "int", "length": "6"}, {"field": "rotations_efm", "column": "ROTATIONS_EFM", "typedef": "int", "length": "6"}, {"field": "comment", "column": "COMMENT", "typedef": "char", "length": "80"}]}, "Gu": {"type": "Gu", "table": "", "validators": [{"field": "tor_code", "column": "TOR_CODE", "typedef": "char", "length": "10"}, {"field": "gear_subtype", "column": "GEAR_SUBTYPE", "typedef": "char", "length": "3"}, {"field": "mesh_size", "column": "MESH_SIZE", "typedef": "float", "length": "8"}, {"field": "depth_indicator", "column": "DEPTH_INDICATOR", "typedef": "char", "length": "1"}, {"field": "depth", "column": "DEPTH", "typedef": "float", "length": "6"}, {"field": "gear_count", "column": "GEAR_COUNT", "typedef": "int", "length": "3"}, {"field": "buoyancy", "column": "BUOYANCY", "typedef": "int", "length": "4"}, {"field": "door_spread", "column": "DOOR_SPREAD", "typedef": "int", "length": "3"}, {"field": "door_surface", "column": "DOOR_SURFACE", "typedef": "float", "length": "5"}, {"field": "door_weight", "column": "DOOR_WEIGHT", "typedef": "int", "length": "4"}, {"field": "kite_dimensions", "column": "KITE_DIMENSIONS", "typedef": "float", "length": "5"}, {"field": "net_opening", "column": "NET_OPENING", "typedef": "float", "length": "7"}, {"field": "side", "column": "SIDE", "typedef": "char", "length": "1"}, {"field": "warp_diameter", "column": "WARP_DIAMETER", "typedef": "int", "length": "2"}, {"field": "warp_length", "column": "WARP_LENGTH", "typedef": "int", "length": "3"}, {"field": "weight_ground_rope", "column": "WEIGHT_GROUND_ROPE", "typedef": "int", "length": "4"}, {"field": "wing_spread", "column": "WING_SPREAD", "typedef": "int", "length": "4"}, {"field": "voltage", "column": "VOLTAGE", "typedef": "int", "length": "4"}, {"field": "current", "column": "CURRENT", "typedef": "float", "length": "4"}, {"field": "ticklers", "column": "TICKLERS", "typedef": "int", "length": "2"}, {"field": "chains", "column": "CHAINS", "typedef": "int", "length": "2"}, {"field": "external_fm_id", "column": "EXTERNAL_FM_ID", "typedef": "int", "length": "3"}, {"field": "internal_fm_id", "column": "INTERNAL_FM_ID", "typedef": "int", "length": "3"}]}, "Ss": {"type": "Ss", "table": "", "validators": [{"field": "seq_no", "column": "SEQ_NO", "typedef": "int", "length": "3"}, {"field": "sse_id", "column": "SSE_ID", "typedef": "int", "length": "3"}, {"field": "method", "column": "METHOD", "typedef": "char", "length": "1"}, {"field": "units_total", "column": "UNITS_TOTAL", "typedef": "float", "length": "11"}, {"field": "units_used", "column": "UNITS_USED", "typedef": "float", "length": "11"}, {"field": "weight", "column": "WEIGHT", "typedef": "float", "length": "13"}, {"field": "category", "column": "CATEGORY", "typedef": "char", "length": "2"}]}, "Cl": {"type": "Cl", "table": "", "validators": [{"field": "seq_no", "column": "SEQ_NO", "typedef": "int", "length": "6"}, {"field": "taxons", "column": "TAXONS", "typedef": "char", "length": "12"}, {"field": "gender", "column": "GENDER", "typedef": "char", "length": "1"}, {"field": "gonad_weight", "column": "GONAD_WEIGHT", "typedef": "float", "length": "13"}, {"field": "increment", "column": "INCREMENT", "typedef": "float", "length": "9"}, {"field": "length", "column": "LENGTH", "typedef": "float", "length": "9"}, {"field": "liver_weight", "column": "LIVER_WEIGHT", "typedef": "float", "length": "13"}, {"field": "maturity", "column": "MATURITY", "typedef": "char", "length": "1"}, {"field": "quantity", "column": "QUANTITY", "typedef": "int", "length": "7"}, {"field": "lf_repr", "column": "LF_REPR", "typedef": "char", "length": "1"}, {"field": "cpue_repr", "column": "CPUE_REPR", "typedef": "char", "length": "1"}, {"field": "css_weight", "column": "CSS_WEIGHT", "typedef": "float", "length": "13"}, {"field": "girth", "column": "GIRTH", "typedef": "float", "length": "4"}, {"field": "digestion_stage", "column": "DIGESTION_STAGE", "typedef": "char", "length": "1"}, {"field": "fish_number", "column": "FISH_NUMBER", "typedef": "int", "length": "7"}, {"field": "stomach_weight", "column": "STOMACH_WEIGHT", "typedef": "float", "length": "13"}, {"field": "has_ages", "column": "HAS_AGES", "typedef": "char", "length": "1"}, {"field": "egg_stage", "column": "EGG_STAGE", "typedef": "char", "length": "2"}, {"field": "tag_code", "column": "TAG_CODE", "typedef": "char", "length": "11"}, {"field": "width", "column": "WIDTH", "typedef": "float", "length": "6"}, {"field": "species_determined_by", "column": "SPECIES_DETERMINED_BY", "typedef": "char", "length": "2"}, {"field": "fat_content", "column": "FAT_CONTENT", "typedef": "float", "length": "4"}, {"field": "oil_drop_diameter", "column": "OIL_DROP_DIAMETER", "typedef": "float", "length": "9"}, {"field": "gutted_weight", "column": "GUTTED_WEIGHT", "typedef": "float", "length": "13"}, {"field": "css_comment", "column": "CSS_COMMENT", "typedef": "char", "length": "80"}, {"field": "yearclass", "column": "YEARCLASS", "typedef": "int", "length": "4"}, {"field": "determination_method", "column": "DETERMINATION_METHOD", "typedef": "char", "length": "15"}, {"field": "spawner", "column": "SPAWNER", "typedef": "char", "length": "1"}, {"field": "otolith_type", "column": "OTOLITH_TYPE", "typedef": "char", "length": "1"}, {"field": "grading", "column": "GRADING", "typedef": "int", "length": "1"}, {"field": "diseases", "column": "DISEASES", "typedef": "char", "length": "32"}, {"field": "diseases_quantity", "column": "DISEASES_QUANTITY", "typedef": "int", "length": "3"}]}, "Af": {"type": "Af", "table": "", "validators": [{"field": "number", "column": "NUMBER", "typedef": "int", "length": "3"}, {"field": "distance", "column": "DISTANCE", "typedef": "float", "length": "8"}, {"field": "remark", "column": "REMARK", "typedef": "char", "length": "25"}, {"field": "ring_count", "column": "RING_COUNT", "typedef": "int", "length": "2"}]}}
+{
+  "St": {
+    "type": "St",
+    "table": "",
+    "validators": [
+      {
+        "field": "code",
+        "column": "CODE",
+        "typedef": "char",
+        "length": "7"
+      },
+      {
+        "field": "date",
+        "column": "DATE",
+        "typedef": "char",
+        "length": "8"
+      },
+      {
+        "field": "time",
+        "column": "TIME",
+        "typedef": "char",
+        "length": "4"
+      },
+      {
+        "field": "time_accuracy",
+        "column": "TIME_ACCURACY",
+        "typedef": "int",
+        "length": "9"
+      },
+      {
+        "field": "program",
+        "column": "PROGRAM",
+        "typedef": "char",
+        "length": "8"
+      },
+      {
+        "field": "program_version",
+        "column": "PROGRAM_VERSION",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "vessel",
+        "column": "VESSEL",
+        "typedef": "char",
+        "length": "10"
+      },
+      {
+        "field": "country",
+        "column": "COUNTRY",
+        "typedef": "char",
+        "length": "3"
+      },
+      {
+        "field": "area_code",
+        "column": "AREA_CODE",
+        "typedef": "char",
+        "length": "4"
+      },
+      {
+        "field": "quarter",
+        "column": "QUARTER",
+        "typedef": "int",
+        "length": "1"
+      },
+      {
+        "field": "air_temperature",
+        "column": "AIR_TEMPERATURE",
+        "typedef": "float",
+        "length": "5"
+      },
+      {
+        "field": "cloud_cover",
+        "column": "CLOUD_COVER",
+        "typedef": "int",
+        "length": "1"
+      },
+      {
+        "field": "salinity_factor",
+        "column": "SALINITY_FACTOR",
+        "typedef": "float",
+        "length": "6"
+      },
+      {
+        "field": "swell_direction",
+        "column": "SWELL_DIRECTION",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "swell_height",
+        "column": "SWELL_HEIGHT",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "tidal_phase",
+        "column": "TIDAL_PHASE",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "tide_direction",
+        "column": "TIDE_DIRECTION",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "tide_speed",
+        "column": "TIDE_SPEED",
+        "typedef": "float",
+        "length": "3"
+      },
+      {
+        "field": "water_visibility",
+        "column": "WATER_VISIBILITY",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "weather_code",
+        "column": "WEATHER_CODE",
+        "typedef": "int",
+        "length": "2"
+      },
+      {
+        "field": "wind_direction",
+        "column": "WIND_DIRECTION",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "wind_force",
+        "column": "WIND_FORCE",
+        "typedef": "float",
+        "length": "5"
+      },
+      {
+        "field": "distance_to_shore",
+        "column": "DISTANCE_TO_SHORE",
+        "typedef": "int",
+        "length": "8"
+      },
+      {
+        "field": "stratum",
+        "column": "STRATUM",
+        "typedef": "char",
+        "length": "4"
+      },
+      {
+        "field": "day_night",
+        "column": "DAY_NIGHT",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "landing_date",
+        "column": "LANDING_DATE",
+        "typedef": "char",
+        "length": "8"
+      }
+    ]
+  },
+  "Pn": {
+    "type": "Pn",
+    "table": "",
+    "validators": [
+      {
+        "field": "seq_no",
+        "column": "SEQ_NO",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "latitude",
+        "column": "LATITUDE",
+        "typedef": "char",
+        "length": "9"
+      },
+      {
+        "field": "longitude",
+        "column": "LONGITUDE",
+        "typedef": "char",
+        "length": "10"
+      },
+      {
+        "field": "positioning_method",
+        "column": "POSITIONING_METHOD",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "positioning_accuracy",
+        "column": "POSITIONING_ACCURACY",
+        "typedef": "int",
+        "length": "8"
+      },
+      {
+        "field": "position_type",
+        "column": "POSITION_TYPE",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "water_depth",
+        "column": "WATER_DEPTH",
+        "typedef": "float",
+        "length": "6"
+      }
+    ]
+  },
+  "Cm": {
+    "type": "Cm",
+    "table": "",
+    "validators": [
+      {
+        "field": "persons",
+        "column": "PERSONS",
+        "typedef": "char",
+        "length": "3"
+      },
+      {
+        "field": "function",
+        "column": "FUNCTION",
+        "typedef": "char",
+        "length": "30"
+      }
+    ]
+  },
+  "CT": {
+    "type": "CT",
+    "table": "",
+    "validators": [
+      {
+        "field": "depth",
+        "column": "DEPTH",
+        "typedef": "float",
+        "length": "6"
+      },
+      {
+        "field": "temperature",
+        "column": "TEMPERATURE",
+        "typedef": "float",
+        "length": "5"
+      },
+      {
+        "field": "conductivity",
+        "column": "CONDUCTIVITY",
+        "typedef": "float",
+        "length": "6"
+      },
+      {
+        "field": "oxygen",
+        "column": "OXYGEN",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "ph",
+        "column": "PH",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "turbidity",
+        "column": "TURBIDITY",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "ctd_type",
+        "column": "CTD_TYPE",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "salinity",
+        "column": "SALINITY",
+        "typedef": "float",
+        "length": "6"
+      }
+    ]
+  },
+  "Sh": {
+    "type": "Sh",
+    "table": "",
+    "validators": [
+      {
+        "field": "description",
+        "column": "DESCRIPTION",
+        "typedef": "char",
+        "length": "20"
+      },
+      {
+        "field": "percentage",
+        "column": "PERCENTAGE",
+        "typedef": "int",
+        "length": "3"
+      }
+    ]
+  },
+  "Hl": {
+    "type": "Hl",
+    "table": "",
+    "validators": [
+      {
+        "field": "seq_no",
+        "column": "SEQ_NO",
+        "typedef": "int",
+        "length": "7"
+      },
+      {
+        "field": "bottom_track",
+        "column": "BOTTOM_TRACK",
+        "typedef": "int",
+        "length": "5"
+      },
+      {
+        "field": "water_track",
+        "column": "WATER_TRACK",
+        "typedef": "int",
+        "length": "5"
+      },
+      {
+        "field": "direction",
+        "column": "DIRECTION",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "duration",
+        "column": "DURATION",
+        "typedef": "float",
+        "length": "9"
+      },
+      {
+        "field": "valid",
+        "column": "VALID",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "missing_taxon",
+        "column": "MISSING_TAXON",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "weight",
+        "column": "WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "conservation",
+        "column": "CONSERVATION",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "handling",
+        "column": "HANDLING",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "rotations_ifm",
+        "column": "ROTATIONS_IFM",
+        "typedef": "int",
+        "length": "6"
+      },
+      {
+        "field": "rotations_efm",
+        "column": "ROTATIONS_EFM",
+        "typedef": "int",
+        "length": "6"
+      },
+      {
+        "field": "comment",
+        "column": "COMMENT",
+        "typedef": "char",
+        "length": "80"
+      }
+    ]
+  },
+  "Gu": {
+    "type": "Gu",
+    "table": "",
+    "validators": [
+      {
+        "field": "tor_code",
+        "column": "TOR_CODE",
+        "typedef": "char",
+        "length": "10"
+      },
+      {
+        "field": "gear_subtype",
+        "column": "GEAR_SUBTYPE",
+        "typedef": "char",
+        "length": "3"
+      },
+      {
+        "field": "mesh_size",
+        "column": "MESH_SIZE",
+        "typedef": "float",
+        "length": "8"
+      },
+      {
+        "field": "depth_indicator",
+        "column": "DEPTH_INDICATOR",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "depth",
+        "column": "DEPTH",
+        "typedef": "float",
+        "length": "6"
+      },
+      {
+        "field": "gear_count",
+        "column": "GEAR_COUNT",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "buoyancy",
+        "column": "BUOYANCY",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "door_spread",
+        "column": "DOOR_SPREAD",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "door_surface",
+        "column": "DOOR_SURFACE",
+        "typedef": "float",
+        "length": "5"
+      },
+      {
+        "field": "door_weight",
+        "column": "DOOR_WEIGHT",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "kite_dimensions",
+        "column": "KITE_DIMENSIONS",
+        "typedef": "float",
+        "length": "5"
+      },
+      {
+        "field": "net_opening",
+        "column": "NET_OPENING",
+        "typedef": "float",
+        "length": "7"
+      },
+      {
+        "field": "side",
+        "column": "SIDE",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "warp_diameter",
+        "column": "WARP_DIAMETER",
+        "typedef": "int",
+        "length": "2"
+      },
+      {
+        "field": "warp_length",
+        "column": "WARP_LENGTH",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "weight_ground_rope",
+        "column": "WEIGHT_GROUND_ROPE",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "wing_spread",
+        "column": "WING_SPREAD",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "voltage",
+        "column": "VOLTAGE",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "current",
+        "column": "CURRENT",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "ticklers",
+        "column": "TICKLERS",
+        "typedef": "int",
+        "length": "2"
+      },
+      {
+        "field": "chains",
+        "column": "CHAINS",
+        "typedef": "int",
+        "length": "2"
+      },
+      {
+        "field": "external_fm_id",
+        "column": "EXTERNAL_FM_ID",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "internal_fm_id",
+        "column": "INTERNAL_FM_ID",
+        "typedef": "int",
+        "length": "3"
+      }
+    ]
+  },
+  "Ss": {
+    "type": "Ss",
+    "table": "",
+    "validators": [
+      {
+        "field": "seq_no",
+        "column": "SEQ_NO",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "sse_id",
+        "column": "SSE_ID",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "method",
+        "column": "METHOD",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "units_total",
+        "column": "UNITS_TOTAL",
+        "typedef": "float",
+        "length": "11"
+      },
+      {
+        "field": "units_used",
+        "column": "UNITS_USED",
+        "typedef": "float",
+        "length": "11"
+      },
+      {
+        "field": "weight",
+        "column": "WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "category",
+        "column": "CATEGORY",
+        "typedef": "char",
+        "length": "2"
+      }
+    ]
+  },
+  "Cl": {
+    "type": "Cl",
+    "table": "",
+    "validators": [
+      {
+        "field": "seq_no",
+        "column": "SEQ_NO",
+        "typedef": "int",
+        "length": "6"
+      },
+      {
+        "field": "taxons",
+        "column": "TAXONS",
+        "typedef": "char",
+        "length": "12"
+      },
+      {
+        "field": "gender",
+        "column": "GENDER",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "gonad_weight",
+        "column": "GONAD_WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "increment",
+        "column": "INCREMENT",
+        "typedef": "float",
+        "length": "9"
+      },
+      {
+        "field": "length",
+        "column": "LENGTH",
+        "typedef": "float",
+        "length": "9"
+      },
+      {
+        "field": "liver_weight",
+        "column": "LIVER_WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "maturity",
+        "column": "MATURITY",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "quantity",
+        "column": "QUANTITY",
+        "typedef": "int",
+        "length": "7"
+      },
+      {
+        "field": "lf_repr",
+        "column": "LF_REPR",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "cpue_repr",
+        "column": "CPUE_REPR",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "css_weight",
+        "column": "CSS_WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "girth",
+        "column": "GIRTH",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "digestion_stage",
+        "column": "DIGESTION_STAGE",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "fish_number",
+        "column": "FISH_NUMBER",
+        "typedef": "int",
+        "length": "7"
+      },
+      {
+        "field": "stomach_weight",
+        "column": "STOMACH_WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "has_ages",
+        "column": "HAS_AGES",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "egg_stage",
+        "column": "EGG_STAGE",
+        "typedef": "char",
+        "length": "2"
+      },
+      {
+        "field": "tag_code",
+        "column": "TAG_CODE",
+        "typedef": "char",
+        "length": "11"
+      },
+      {
+        "field": "width",
+        "column": "WIDTH",
+        "typedef": "float",
+        "length": "6"
+      },
+      {
+        "field": "species_determined_by",
+        "column": "SPECIES_DETERMINED_BY",
+        "typedef": "char",
+        "length": "2"
+      },
+      {
+        "field": "fat_content",
+        "column": "FAT_CONTENT",
+        "typedef": "float",
+        "length": "4"
+      },
+      {
+        "field": "oil_drop_diameter",
+        "column": "OIL_DROP_DIAMETER",
+        "typedef": "float",
+        "length": "9"
+      },
+      {
+        "field": "gutted_weight",
+        "column": "GUTTED_WEIGHT",
+        "typedef": "float",
+        "length": "13"
+      },
+      {
+        "field": "css_comment",
+        "column": "CSS_COMMENT",
+        "typedef": "char",
+        "length": "80"
+      },
+      {
+        "field": "yearclass",
+        "column": "YEARCLASS",
+        "typedef": "int",
+        "length": "4"
+      },
+      {
+        "field": "determination_method",
+        "column": "DETERMINATION_METHOD",
+        "typedef": "char",
+        "length": "15"
+      },
+      {
+        "field": "spawner",
+        "column": "SPAWNER",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "otolith_type",
+        "column": "OTOLITH_TYPE",
+        "typedef": "char",
+        "length": "1"
+      },
+      {
+        "field": "grading",
+        "column": "GRADING",
+        "typedef": "int",
+        "length": "1"
+      },
+      {
+        "field": "diseases",
+        "column": "DISEASES",
+        "typedef": "char",
+        "length": "32"
+      },
+      {
+        "field": "diseases_quantity",
+        "column": "DISEASES_QUANTITY",
+        "typedef": "int",
+        "length": "3"
+      }
+    ]
+  },
+  "Af": {
+    "type": "Af",
+    "table": "",
+    "validators": [
+      {
+        "field": "number",
+        "column": "NUMBER",
+        "typedef": "int",
+        "length": "3"
+      },
+      {
+        "field": "distance",
+        "column": "DISTANCE",
+        "typedef": "float",
+        "length": "8"
+      },
+      {
+        "field": "remark",
+        "column": "REMARK",
+        "typedef": "char",
+        "length": "25"
+      },
+      {
+        "field": "ring_count",
+        "column": "RING_COUNT",
+        "typedef": "int",
+        "length": "2"
+      }
+    ]
+  }
+}

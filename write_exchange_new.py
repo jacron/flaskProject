@@ -22,7 +22,11 @@ def get_field_def_(field, field_defs):
 
 
 def fill_field(field, value, line, record_def, field_defs):
-    begin = int(get_pos(field, record_def)) - 1
+    pos = get_pos(field, record_def)
+    if not pos:
+        print(f'No position found for field {field}, value {value}')
+        return
+    begin = int(pos) - 1
     field_def = get_field_def_(field, field_defs)
     length = int(field_def['length'])
     # alignment = field_def['alignment']

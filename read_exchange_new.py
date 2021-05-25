@@ -84,4 +84,5 @@ def read_exchange_new(filename, dir_):
         lines = fp.readlines()
     version = get_version(lines)
     data = parse(lines, version)
+    data['version'] = version
     return data

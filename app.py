@@ -27,10 +27,10 @@ def index_page():
 @app.route('/exchange/<filename>', methods=['POST', 'GET'])
 def read(filename):
     path = request.cookies.get(cookie_path_name) or sampledir
-    data = read_exchange_new(filename, path)
+    # data = read_exchange_new(filename, path)
     if request.method == 'POST':
         write_exchange_new(request.form, filename, path)
-        data = read_exchange_new(filename, path)
+    data = read_exchange_new(filename, path)
     return render_template('form/form.html', title=filename, data=data)
 
 
