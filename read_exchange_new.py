@@ -73,16 +73,12 @@ def get_records(lines, version):
     return records, meta
 
 
-def parse(lines, version):
-    data = dict()
-    data['records'], data['meta'] = get_records(lines, version)
-    return data
-
-
 def read_exchange_new(filename, dir_):
     with open(dir_ + filename) as fp:
         lines = fp.readlines()
     version = get_version(lines)
-    data = parse(lines, version)
+    data = dict()
+    data['lines'] = lines
+    data['records'], data['meta'] = get_records(lines, version)
     data['version'] = version
     return data

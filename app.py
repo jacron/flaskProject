@@ -28,10 +28,15 @@ def index_page():
 def read(filename):
     path = request.cookies.get(cookie_path_name) or sampledir
     # data = read_exchange_new(filename, path)
-    if request.method == 'POST':
-        write_exchange_new(request.form, filename, path)
+    # if request.method == 'POST':
+    #     write_exchange_new(request.form, filename, path)
     data = read_exchange_new(filename, path)
-    return render_template('form/form.html', title=filename, data=data)
+    content = ''.join(data['lines'])
+    return render_template('form/form.html',
+                           title=filename,
+                           content=content,
+                           path=path,
+                           data=data)
 
 
 if __name__ == '__main__':

@@ -36,3 +36,12 @@ td.label {
 .editor-header {
     margin: 14px;
 }
+textarea.content {
+    width: calc(100% - 12px);
+    height: 200px;
+    margin: 0 6px;
+}
+input.path {
+    width: calc(100% - 12px);
+    margin: 0 6px;
+}

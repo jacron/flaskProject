@@ -7,15 +7,9 @@
     <a href="/">Home</a>
     <div class="editor-header">
         <h2>{{ title }}</h2>
-        <p>Type of file:{{ data.meta.Ty }}
-            <br>
-            {{ data.meta.Vn }}
-            <br>
-            {{ data.meta.Cl }}
-            <br>
-        {{ data.meta.NR }}
-        </p>
+        <input class="path" value="{{ path }}"></input>
     </div>
+    <textarea class="content">{{ content }}</textarea>
     <form method="post">
     <input type="hidden" name="version" value="{{ data.version }}">
     {% include 'form/save.j2' %}
