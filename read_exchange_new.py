@@ -53,6 +53,8 @@ def parse_line(line, record_def, field_defs_):
 def get_record_type_def(line, def_):
     code_ = line[:2]
     record_def = get_record_def_by_code(code_, def_)
+    if not record_def:
+        print('No record def for code: ' + code_)
     return record_def
 
 
@@ -68,10 +70,11 @@ def get_records(lines, def_, field_defs_):
             meta[prefix] = value
         else:
             record_def = get_record_type_def(line, def_)
-            record = parse_line(line.strip(), record_def, field_defs_)
-            # if record:
-            record['nr'] = i
-            records.append(record)
+            if record_def:
+                record = parse_line(line.strip(), record_def, field_defs_)
+                if record:
+                    record['nr'] = i
+                    records.append(record)
         i += 1
     return records, meta
 
@@ -87,7 +90,7 @@ def get_pos(def_, type_, name):
 def get_length(field_defs_, name):
     for field in field_defs_['fields']['field']:
         if field['name'] == name:
-            return field['length'], field.get('alignment', 'left')
+            return field['length'], field.get('alignment')
 
 
 def align(s, length, alignment):
@@ -105,10 +108,13 @@ def inject_value(line_, args, def_, field_defs_):
     value = args.get('value').strip()
     print(line_)
     line = list(line_.strip())
-    pos = int(get_pos(def_, type_, name))
+    pos = int(get_pos(def_, type_, name)) - 1
     (length, alignment) = get_length(field_defs_, name)
     length = int(length)
-    value = align(value, length, alignment)
+    if alignment:
+        value = align(value, length, alignment)
+    else:
+        value = align(value, length, 'left')
     line[pos:pos + length] = value
     s = ''.join(line)
     print(s + '\n')
@@ -116,7 +122,7 @@ def inject_value(line_, args, def_, field_defs_):
 
 
 def read_exchange_new(filename, dir_, args):
-    print(args)
+    # print(args)
     with open(dir_ + filename) as fp:
         lines = fp.readlines()
     version = get_version(lines)

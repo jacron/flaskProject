@@ -72,7 +72,7 @@ def read_meta_lines(filename, dir_):
 
 
 def write_exchange_new2(form, filename, dir_):
-    fle = dir_ + filename + '.edited.bl8'
+    fle = dir_ + filename
     with open(fle, "w+") as fp:
         fp.write(form['content'])
     print('written content to', fle)
