@@ -7,24 +7,20 @@
     <a href="/">Home</a>
     <div class="editor-header">
         <h2>{{ title }}</h2>
-        <input class="path" value="{{ path }}"></input>
+        <input class="path" value="{{ path }}" title="path">
     </div>
-    <textarea class="content">{{ content }}</textarea>
     <form method="post">
+    <textarea class="content" title="content" name="content">{{ content }}</textarea>
     <input type="hidden" name="version" value="{{ data.version }}">
     {% include 'form/save.j2' %}
         <p>&nbsp;</p>
     <div class="tables">
     {% for record in data.records %}
         <div class="column">
-        <div class="type-header">{{ record.name }}</div>
+        <div class="type-header">r {{ record.nr }}: {{ record.name }}</div>
         <table>{% for field in record %}
             <tr>
-                {% if field|first == '#' %}
-                    {% include 'form/composite.html' %}
-                {% else %}
-                    {% include 'form/simple.html' %}
-                {% endif %}
+                {% include 'form/input.html' %}
             </tr>
         {% endfor %}</table>
         </div>

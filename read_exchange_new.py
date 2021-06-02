@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 from lib.exchange import get_version, get_exchange_def, get_field_def, \
     get_record_def_by_code, names
 
@@ -39,7 +41,7 @@ def get_field(rec, field_defs_, line):
 
 
 def parse_line(line, record_def, field_defs_):
-    record = dict()
+    record = OrderedDict()
     for rec in record_def:
         field = get_field(rec, field_defs_, line)
         if field:
@@ -54,11 +56,10 @@ def get_record_type_def(line, def_):
     return record_def
 
 
-def get_records(lines, version):
-    def_ = get_exchange_def(version)
-    field_defs_ = get_field_def(version)
+def get_records(lines, def_, field_defs_):
     records = []
     meta = dict()
+    i = 1
     for line in lines:
         if line.startswith('#'):
             parts = line[2:].split(': ')
@@ -68,17 +69,67 @@ def get_records(lines, version):
         else:
             record_def = get_record_type_def(line, def_)
             record = parse_line(line.strip(), record_def, field_defs_)
-            if record:
-                records.append(record)
+            # if record:
+            record['nr'] = i
+            records.append(record)
+        i += 1
     return records, meta
 
 
-def read_exchange_new(filename, dir_):
+def get_pos(def_, type_, name):
+    for record in def_['records']['record']:
+        if record['@code'] == type_:
+            for field in record['field']:
+                if field['@name'] == name:
+                    return field['@pos']
+
+
+def get_length(field_defs_, name):
+    for field in field_defs_['fields']['field']:
+        if field['name'] == name:
+            return field['length'], field.get('alignment', 'left')
+
+
+def align(s, length, alignment):
+    rest = length - len(s)
+    extra = ' ' * rest
+    if alignment == 'left':
+        return s + extra
+    else:
+        return extra + s
+
+
+def inject_value(line_, args, def_, field_defs_):
+    type_ = args.get('type')
+    name = args.get('name')
+    value = args.get('value').strip()
+    print(line_)
+    line = list(line_.strip())
+    pos = int(get_pos(def_, type_, name))
+    (length, alignment) = get_length(field_defs_, name)
+    length = int(length)
+    value = align(value, length, alignment)
+    line[pos:pos + length] = value
+    s = ''.join(line)
+    print(s + '\n')
+    return s + '\n'
+
+
+def read_exchange_new(filename, dir_, args):
+    print(args)
     with open(dir_ + filename) as fp:
         lines = fp.readlines()
     version = get_version(lines)
+    def_ = get_exchange_def(version)
+    field_defs_ = get_field_def(version)
+
+    nr = args.get('nr')
+    if nr:
+        nr = int(nr) - 1
+        lines[nr] = inject_value(lines[nr], args, def_, field_defs_)
+
     data = dict()
     data['lines'] = lines
-    data['records'], data['meta'] = get_records(lines, version)
+    data['records'], data['meta'] = get_records(lines, def_, field_defs_)
     data['version'] = version
     return data

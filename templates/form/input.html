@@ -1,0 +1,21 @@
+<td class="label">
+    {{ field }}
+</td>
+<td>
+    {% set value = record[field].value %}
+    {% set len = record[field].length %}
+    {% set name = record.type.value + '.' + field %}
+    <input
+        id=""
+        type="{{ record[field].type }}"
+        style="text-align: {{ record[field].alignment }}"
+        value="{{ value }}"
+        size="{{ len }}"
+        minlength="{{ len }}"
+        maxlength="{{ len }}"
+        name="{{ name }}"
+        title="{{ name }} ({{ len }})"
+        onfocus="inputfocus()"
+        onblur="inputblur('{{ record.type.value }}', {{ record.nr }}, '{{ field }}', this.value)"
+    >
+</td>
