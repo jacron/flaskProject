@@ -29,7 +29,8 @@ function insert(line, position, alignment, len, value) {
         line.substr(position + len);
 }
 
-inputblur = (nr, position, alignment, len, value) => {
+inputchange = (nr, position, alignment, len, value) => {
+    // console.log('changing nr:' + nr);
     let content = document.getElementById('content').value;
     let lines = content.split('\n');
     lines[nr - 1] = insert(lines[nr - 1], position, alignment, len, value);

@@ -17,7 +17,7 @@
         maxlength="{{ len }}"
         name="{{ name }}"
         title="{{ name }} ({{ len }})"
-        onblur="inputblur(
+        onchange="inputchange(
             {{ record.nr }}, {{ position }}, '{{ alignment }}', {{ len }}, this.value)"
     >
 </td>

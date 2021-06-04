@@ -13,6 +13,7 @@
     <textarea id="content" class="content" title="content" name="content">{{ content }}</textarea>
     <input type="hidden" name="version" value="{{ data.version }}">
     {% include 'form/save.j2' %}
+    </form>
         <p>&nbsp;</p>
     <div class="tables">
     {% for record in data.records %}
@@ -26,7 +27,4 @@
         </div>
     {% endfor %}
     </div>
-    {% include 'form/save.j2' %}
-    <br>
-    </form>
 {% endblock %}
