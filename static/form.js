@@ -11,8 +11,28 @@ function strip_query(s) {
     }
 }
 
-inputblur = (type, nr, name, value) => {
-    console.log(type, nr, name, value) //"St" 6 "St/landing_date" "20"
-    const href = strip_query(document.location.href)
-    document.location.href = href + `?type=${type}&nr=${nr}&name=${name}&value=${value}`
+function fill(value, alignment, len) {
+    let rest = len - value.length;
+    let spaces = '';
+    while (rest-- > 0) {
+        spaces += ' ';
+    }
+    if (alignment === 'right') {
+        return spaces + value;
+    } else {
+        return value + spaces;
+    }
 }
+
+function insert(line, position, alignment, len, value) {
+    return line.substr(0, position) + fill(value, alignment, len) +
+        line.substr(position + len);
+}
+
+inputblur = (nr, position, alignment, len, value) => {
+    let content = document.getElementById('content').value;
+    let lines = content.split('\n');
+    lines[nr - 1] = insert(lines[nr - 1], position, alignment, len, value);
+    document.getElementById('content').innerHTML = lines.join('\n');
+}
+

@@ -10,7 +10,7 @@
         <input class="path" value="{{ path }}" title="path">
     </div>
     <form method="post">
-    <textarea class="content" title="content" name="content">{{ content }}</textarea>
+    <textarea id="content" class="content" title="content" name="content">{{ content }}</textarea>
     <input type="hidden" name="version" value="{{ data.version }}">
     {% include 'form/save.j2' %}
         <p>&nbsp;</p>
@@ -18,7 +18,7 @@
     {% for record in data.records %}
         <div class="column">
         <div class="type-header">r {{ record.nr }}: {{ record.name }}</div>
-        <table>{% for field in record %}
+        <table>{% for key, field in record.fields.items() %}
             <tr>
                 {% include 'form/input.html' %}
             </tr>

@@ -31,7 +31,8 @@ def get_field(rec, field_defs_, line):
             'value': lin.strip(),
             'length': field_length,
             'type': input_type,
-            'alignment': alignment_
+            'alignment': alignment_,
+            'position': begin
         }
     except Exception as e:
         print(e)
@@ -41,12 +42,14 @@ def get_field(rec, field_defs_, line):
 
 
 def parse_line(line, record_def, field_defs_):
-    record = OrderedDict()
+    record = dict()
+    fields = OrderedDict()
     for rec in record_def:
         field = get_field(rec, field_defs_, line)
         if field:
-            record[rec['@name']] = field
-    record['name'] = names[record['type']['value']]
+            fields[rec['@name']] = field
+    record['fields'] = fields
+    record['name'] = names[fields['type']['value']]
     return record
 
 
@@ -106,7 +109,6 @@ def inject_value(line_, args, def_, field_defs_):
     type_ = args.get('type')
     name = args.get('name')
     value = args.get('value').strip()
-    print(line_)
     line = list(line_.strip())
     pos = int(get_pos(def_, type_, name)) - 1
     (length, alignment) = get_length(field_defs_, name)
@@ -117,7 +119,6 @@ def inject_value(line_, args, def_, field_defs_):
         value = align(value, length, 'left')
     line[pos:pos + length] = value
     s = ''.join(line)
-    print(s + '\n')
     return s + '\n'
 
 
