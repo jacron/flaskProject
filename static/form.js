@@ -1,16 +1,3 @@
-inputfocus = () => {
-    // console.log('input focus')
-}
-
-function strip_query(s) {
-    const parts = s.split('?')
-    if (parts.length > 1) {
-        return parts[0]
-    } else {
-        return s
-    }
-}
-
 function fill(value, alignment, len) {
     let rest = len - value.length;
     let spaces = '';
@@ -37,3 +24,11 @@ inputchange = (nr, position, alignment, len, value) => {
     document.getElementById('content').innerHTML = lines.join('\n');
 }
 
+toggleTable = nr => {
+    let table = document.getElementById('nr_' + nr)
+    if (table.style.display === 'none') {
+        table.style.display = 'block';
+    } else {
+        table.style.display = 'none';
+    }
+}

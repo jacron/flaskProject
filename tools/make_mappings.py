@@ -54,7 +54,7 @@ def get_validators(def_):
 
 def main():
     def_ = get_exchange_def()
-    types = get_types(def_)
+    # types = get_types(def_)
     # v7: {'Hl', 'Pn', 'Cl', 'Cm', 'St', 'CT', 'Af', 'Sh', 'Ss', 'Gu'}
     # v6: {'Cm', 'Pn', 'Cl', 'Ss', 'Gu', 'Sh', 'CT', 'Hl', 'St'}
     table = dict()

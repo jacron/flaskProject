@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, make_response
+from flask import Flask, render_template, request, make_response, redirect
 
 from get_files import get_exchange_files
-from read_exchange_new import read_exchange_new
+from read_exchange import read_exchange
 from settings import sampledir, cookie_path_name
-from write_exchange_new import write_exchange_new, write_exchange_new2
+from write_exchange import write_exchange
 
 app = Flask(__name__)
 
@@ -19,22 +19,46 @@ def path_page():
 
 @app.route('/')
 def index_page():
-    names = get_exchange_files(request)
     path = request.cookies.get(cookie_path_name) or sampledir
+    names = get_exchange_files(path, '.bl8')
     return render_template('index.html', names=names, path=path)
 
 
+def allowed_file(filename):
+    return '.' in filename and \
+       filename.rsplit('.', 1)[1].lower() == 'bl8'
+
+
+@app.route('/exchange', methods=['POST', 'GET'])
 @app.route('/exchange/<filename>', methods=['POST', 'GET'])
-def read(filename):
-    path = request.cookies.get(cookie_path_name) or sampledir
+def read(filename=None):
     if request.method == 'POST':
-        write_exchange_new2(request.form, filename, path)
-    data = read_exchange_new(filename, path, request.args)
-    content = ''.join(data['lines'])
+        if 'content' in request.form:
+            content = request.form['content']
+            filename = request.form['filename']
+            path = request.cookies.get(cookie_path_name) or sampledir
+            write_exchange(content, filename, path)
+            return redirect('/exchange/' + filename)
+        if 'exchangepath' in request.form:
+            response = make_response()
+            response.set_cookie(cookie_path_name, request.form['exchangepath'])
+            response.headers['location'] = '/exchange'
+            return response, 302
+        if 'filename' in request.form:
+            return redirect('/exchange/' + request.form['filename'])
+    path = request.cookies.get(cookie_path_name) or sampledir
+    names = get_exchange_files(path, '.bl8')
+    data = None
+    content = None
+    if len(names) > 0 and filename:
+        data = read_exchange(filename, path, request.args)
+        if data.get('lines'):
+            content = ''.join(data['lines'])
     return render_template('form/form.html',
                            title=filename,
                            content=content,
                            path=path,
+                           names=names,
                            data=data)
 
 

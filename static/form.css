@@ -4,19 +4,20 @@
 }
 .column {
     margin-left: 14px;
+    background-color: lightyellow;
 }
 .column {
     border: 1px solid #aaf;
     border-radius: 5px;
     padding: 6px;
     margin-bottom: 14px;
+    height: min-content;
 }
 input[type=submit] {
     font-size: 16px;
 }
 .header-submit {
-    position: absolute;
-    right: 20px;
+    margin-left: 16px;
 }
 input {
     font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
@@ -37,11 +38,14 @@ td.label {
     margin: 14px;
 }
 textarea.content {
-    width: calc(100% - 12px);
+    width: calc(100% - 36px);
     height: 200px;
-    margin: 0 6px;
+    margin-left: 16px;
 }
 input.path {
-    width: calc(100% - 12px);
-    margin: 0 6px;
+    width: calc(100% - 128px);
+}
+label.header {
+    width: 60px;
+    display: inline-block;
 }

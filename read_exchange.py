@@ -1,3 +1,4 @@
+import os.path
 from collections import OrderedDict
 
 from lib.exchange import get_version, get_exchange_def, get_field_def, \
@@ -16,6 +17,8 @@ def get_field(rec, field_defs_, line):
         begin = int(rec['@pos']) - 1
         field_def = get_f_def(field_defs_, rec['@name'])
         field_length = int(field_def['length'])
+        if field_length > 20:
+            field_length = 21
         end = begin + field_length
         if begin + 1 > len(line):
             lin = ''
@@ -122,21 +125,25 @@ def inject_value(line_, args, def_, field_defs_):
     return s + '\n'
 
 
-def read_exchange_new(filename, dir_, args):
+def read_exchange(filename, dir_, args):
     # print(args)
-    with open(dir_ + filename) as fp:
-        lines = fp.readlines()
-    version = get_version(lines)
-    def_ = get_exchange_def(version)
-    field_defs_ = get_field_def(version)
-
-    nr = args.get('nr')
-    if nr:
-        nr = int(nr) - 1
-        lines[nr] = inject_value(lines[nr], args, def_, field_defs_)
-
+    path = os.path.join(dir_, filename)
     data = dict()
-    data['lines'] = lines
-    data['records'], data['meta'] = get_records(lines, def_, field_defs_)
-    data['version'] = version
+    try:
+        with open(path) as fp:
+            lines = fp.readlines()
+        version = get_version(lines)
+        def_ = get_exchange_def(version)
+        field_defs_ = get_field_def(version)
+
+        nr = args.get('nr')
+        if nr:
+            nr = int(nr) - 1
+            lines[nr] = inject_value(lines[nr], args, def_, field_defs_)
+
+        data['lines'] = lines
+        data['records'], data['meta'] = get_records(lines, def_, field_defs_)
+        data['version'] = version
+    except FileNotFoundError as e:
+        print(e)
     return data
