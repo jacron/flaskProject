@@ -44,6 +44,7 @@ td.label {
     font-weight: bold;
     margin-bottom: 4px;
     opacity: .6;
+    border-bottom: 1px solid #555;
 }
 .editor-header {
     margin: 14px;
