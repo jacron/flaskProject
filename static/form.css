@@ -1,3 +1,10 @@
+div.header {
+    font-size: larger;
+    font-weight: bold;
+}
+div.sub-header {
+    margin-bottom: 16px;
+}
 .tables {
     display: flex;
     flex-wrap: wrap;
@@ -16,8 +23,11 @@
 input[type=submit] {
     font-size: 16px;
 }
-.header-submit {
+.header-submit, .font-edit {
     margin-left: 16px;
+}
+.font-edit input {
+    width: 40px;
 }
 input {
     font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
@@ -29,10 +39,11 @@ td.label {
     padding-right: 5px;
 }
 .type-header {
-    font-size: 24px;
+    font-size: larger;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+    opacity: .6;
 }
 .editor-header {
     margin: 14px;
@@ -44,6 +55,9 @@ textarea.content {
 }
 input.path {
     width: calc(100% - 128px);
+}
+input.save-as {
+    width: calc(100% - 148px);
 }
 label.header {
     width: 60px;

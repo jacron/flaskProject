@@ -4,9 +4,9 @@
     <link href="/static/form.css" rel="stylesheet">
 {% endblock %}
 {% block body %}
-    <a href="/">Home</a>
     <div class="editor-header">
-        <h2 id="filename">{{ title }}</h2>
+        <div class="header" id="filename">{{ title }}</div>
+        <div class="sub-header">{{ data.records | length }} lines</div>
        <form method=post>
             <label class="header" for="path">Path</label>
             <input id="path" class="path" value="{{ path }}" list="paths" name=exchangepath title="path">
@@ -31,13 +31,19 @@
         </form>
     </div>
     <form method="post">
-        <textarea id="content" class="content" title="content" name="content">{{ content }}</textarea>
+        <textarea id="content" class="content" title="content" name="content"
+                  style="font-size: {{ font }}px">{{ content }}</textarea>
         <input type="hidden" name="version" value="{{ data.version }}">
         <div class="header-submit">
-            <label class="header" for="filename">Save as</label>
-            <input id=filename type="text" name="filename" value="{{ title }}">
-            <input type="submit" value="save changes">
+            <label class="header" for="saveas">Save as</label>
+            <input id=saveas class="save-as" type="text" name="filename" value="{{ title }}">
+            <input type="submit" value="save">
         </div>
+    </form>
+    <form class="font-edit" method="post">
+        <label for="font" class="header">Font</label>
+        <input type="text" value="{{ font }}" id="font" name="font">
+        <input type="submit" value="save">
     </form>
         <p>&nbsp;</p>
     <div class="tables">

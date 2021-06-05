@@ -32,3 +32,21 @@ toggleTable = nr => {
         table.style.display = 'none';
     }
 }
+
+zoom = modus => {
+    const text = document.getElementById('content');
+    console.log(text);
+    const textStyle = document.getElementById('content').style;
+    console.log(textStyle.fontSize);
+    const currentFontSize = parseInt(textStyle.fontSize);
+    console.log(currentFontSize);
+    let newFontSize;
+    if (modus === 'in') {
+        newFontSize = +currentFontSize + 1;
+    }
+    if (modus === 'out') {
+        newFontSize = +currentFontSize - 1;
+    }
+    textStyle.fontSize = newFontSize.toString() + 'px';
+    console.log(textStyle.fontSize);
+}

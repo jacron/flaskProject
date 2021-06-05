@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, make_response, redirect
 
 from get_files import get_exchange_files
 from read_exchange import read_exchange
-from settings import SAMPLEDIR, COOKIE_PATH_NAME, DIRS
+from settings import SAMPLEDIR, COOKIE_PATH_NAME, DIRS, FONT_NAME, DEFAULT_FONT
 from write_exchange import write_exchange
 
 app = Flask(__name__)
@@ -32,6 +32,7 @@ def allowed_file(filename):
 @app.route('/exchange', methods=['POST', 'GET'])
 @app.route('/exchange/<filename>', methods=['POST', 'GET'])
 def read(filename=None):
+
     if request.method == 'POST':
         if 'content' in request.form:
             content = request.form['content']
@@ -46,10 +47,17 @@ def read(filename=None):
             return response, 302
         if 'filename' in request.form:
             return redirect('/exchange/' + request.form['filename'])
+        if 'font' in request.form:
+            response = make_response()
+            response.set_cookie(FONT_NAME, request.form['font'])
+            response.headers['location'] = '/exchange/' + filename
+            return response, 302
+
     path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
     names = get_exchange_files(path, '.bl8')
     data = None
     content = None
+    font = request.cookies.get(FONT_NAME) or DEFAULT_FONT
     if len(names) > 0 and filename:
         data = read_exchange(filename, path, request.args)
         if data.get('lines'):
@@ -60,6 +68,7 @@ def read(filename=None):
                            path=path,
                            paths=DIRS,
                            names=names,
+                           font=font,
                            data=data)
 
 

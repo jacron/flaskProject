@@ -4,4 +4,6 @@ DIRS = [
     '/Volumes/frisbep/ont/import/'
 ]
 SAMPLEDIR = DIRS[0]
+DEFAULT_FONT = 13
 COOKIE_PATH_NAME = 'exchange_path'
+FONT_NAME = 'exchange_font'
