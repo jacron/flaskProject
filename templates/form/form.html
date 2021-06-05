@@ -9,7 +9,12 @@
         <h2 id="filename">{{ title }}</h2>
        <form method=post>
             <label class="header" for="path">Path</label>
-            <input id="path" class="path" value="{{ path }}" name=exchangepath title="path">
+            <input id="path" class="path" value="{{ path }}" list="paths" name=exchangepath title="path">
+           <datalist id="paths">
+               {% for path_ in paths %}
+                   <option value="{{ path_ }}"></option>
+               {% endfor %}
+           </datalist>
             <input type=submit value=set>
        </form>
        <form method=post>

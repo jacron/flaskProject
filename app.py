@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, make_response, redirect
 
 from get_files import get_exchange_files
 from read_exchange import read_exchange
-from settings import sampledir, cookie_path_name
+from settings import SAMPLEDIR, COOKIE_PATH_NAME, DIRS
 from write_exchange import write_exchange
 
 app = Flask(__name__)
@@ -13,13 +13,13 @@ def path_page():
     if request.method == 'POST':
         path = request.form['exchange_path']
         resp = make_response(render_template('setpath.html', path=path))
-        resp.set_cookie(cookie_path_name, path)
+        resp.set_cookie(COOKIE_PATH_NAME, path)
         return resp
 
 
 @app.route('/')
 def index_page():
-    path = request.cookies.get(cookie_path_name) or sampledir
+    path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
     names = get_exchange_files(path, '.bl8')
     return render_template('index.html', names=names, path=path)
 
@@ -36,17 +36,17 @@ def read(filename=None):
         if 'content' in request.form:
             content = request.form['content']
             filename = request.form['filename']
-            path = request.cookies.get(cookie_path_name) or sampledir
+            path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
             write_exchange(content, filename, path)
             return redirect('/exchange/' + filename)
         if 'exchangepath' in request.form:
             response = make_response()
-            response.set_cookie(cookie_path_name, request.form['exchangepath'])
+            response.set_cookie(COOKIE_PATH_NAME, request.form['exchangepath'])
             response.headers['location'] = '/exchange'
             return response, 302
         if 'filename' in request.form:
             return redirect('/exchange/' + request.form['filename'])
-    path = request.cookies.get(cookie_path_name) or sampledir
+    path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
     names = get_exchange_files(path, '.bl8')
     data = None
     content = None
@@ -58,6 +58,7 @@ def read(filename=None):
                            title=filename,
                            content=content,
                            path=path,
+                           paths=DIRS,
                            names=names,
                            data=data)
 
