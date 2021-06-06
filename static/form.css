@@ -72,3 +72,6 @@ label.header {
     width: 60px;
     display: inline-block;
 }
+.position {
+    height: 18px;
+}

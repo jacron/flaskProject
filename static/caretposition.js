@@ -32,6 +32,9 @@ function showPosition() {
     content.onclick = () => {
         pos.textContent = getxy(content.selectionStart);
     }
+    content.onblur = () => {
+        pos.textContent = '';
+    }
     // setInterval(() => {
     //     pos.textContent = content.selectionStart;
     // }, 100)
