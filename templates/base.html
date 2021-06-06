@@ -7,10 +7,11 @@
     </title>
     <link href="/static/style.css" rel="stylesheet">
     <script src="/static/form.js"></script>
+    <script src="/static/message.js"></script>
     {% block css %}{% endblock %}
     <link rel="icon" type="image/png" href="/static/exchange-icon.png"/>
 </head>
-<body>
+<body onload="onbodyload()">
 {% block body %}{% endblock %}
 </body>
 </html>

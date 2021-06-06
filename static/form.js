@@ -50,3 +50,12 @@ zoom = modus => {
     textStyle.fontSize = newFontSize.toString() + 'px';
     console.log(textStyle.fontSize);
 }
+
+notify_saved = () => {
+    const filename = document.getElementById('filename').textContent;
+    document.cookie =  'msg=saved: ' + filename;
+}
+
+onbodyload = () => {
+    showMessage();
+}
