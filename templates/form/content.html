@@ -1,6 +1,7 @@
     <form method="post" onsubmit="notify_saved()">
         <textarea id="content" class="content" title="content" name="content"
                   style="font-size: {{ font }}px">{{ content }}</textarea>
+        <div class="position" id="position" style="margin-left: 16px"></div>
         <div class="header-submit">
             <label class="header" for="saveas">Save as</label>
             <input id=saveas class="save-as" type="text" name="filename" value="{{ title }}">

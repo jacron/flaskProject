@@ -4,9 +4,7 @@
     <link href="/static/form.css" rel="stylesheet">
 {% endblock %}
 {% block body %}
-    <div class="topline" id="topline">
-        <div id="message" class="message"></div>
-    </div>
+    {% include 'form/message.html' %}
     <div class="editor-header">
         <div class="header" id="filename">{{ title }}</div>
         <div class="sub-header">{{ data.records | length }} lines</div>
