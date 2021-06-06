@@ -1,0 +1,15 @@
+<div style="margin-left: 16px">
+    <form method="post">
+        <label for="filter" class="header">Filter</label>
+        <select id="filter" name="filter" onchange="this.form.submit()">
+            <option value="-1"> -- </option>
+            {% for code_ in data.codes %}
+                   {% if code_ == code %}
+                       {% set selected='selected=selected' %}
+                   {% endif %}
+                <option value="{{ code_ }}" {{ selected }}>{{ code_ }}</option>
+            {% endfor %}
+        </select>
+       <input type=submit value=set>
+    </form>
+</div>

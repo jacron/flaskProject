@@ -1,0 +1,9 @@
+    <form method="post">
+        <textarea id="content" class="content" title="content" name="content"
+                  style="font-size: {{ font }}px">{{ content }}</textarea>
+        <div class="header-submit">
+            <label class="header" for="saveas">Save as</label>
+            <input id=saveas class="save-as" type="text" name="filename" value="{{ title }}">
+            <input type="submit" value="save">
+        </div>
+    </form>

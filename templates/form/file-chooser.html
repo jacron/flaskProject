@@ -1,0 +1,12 @@
+       <form method=post>
+           <label class="header" for="filename">Filename</label>
+           <select id=filename name="filename" onchange="this.form.submit()">
+               {% for name in names %}
+                   {% if name == title %}
+                       {% set selected='selected=selected' %}
+                   {% endif %}
+                   <option value="{{ name }}" {{ selected }}>{{ name }}</option>
+               {% endfor %}
+           </select>
+           <input type=submit value=choose>
+        </form>

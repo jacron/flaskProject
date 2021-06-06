@@ -7,57 +7,12 @@
     <div class="editor-header">
         <div class="header" id="filename">{{ title }}</div>
         <div class="sub-header">{{ data.records | length }} lines</div>
-       <form method=post>
-            <label class="header" for="path">Path</label>
-            <input id="path" class="path" value="{{ path }}" list="paths" name=exchangepath title="path">
-           <datalist id="paths">
-               {% for path_ in paths %}
-                   <option value="{{ path_ }}"></option>
-               {% endfor %}
-           </datalist>
-            <input type=submit value=set>
-       </form>
-       <form method=post>
-           <label class="header" for="filename">Filename</label>
-           <select id=filename name="filename">
-               {% for name in names %}
-                   {% if name == title %}
-                       {% set selected='selected=selected' %}
-                   {% endif %}
-                   <option value="{{ name }}" {{ selected }}>{{ name }}</option>
-               {% endfor %}
-           </select>
-           <input type=submit value=choose>
-        </form>
+        {% include 'form/dir-chooser.html' %}
+        {% include 'form/file-chooser.html' %}
     </div>
-    <form method="post">
-        <textarea id="content" class="content" title="content" name="content"
-                  style="font-size: {{ font }}px">{{ content }}</textarea>
-        <input type="hidden" name="version" value="{{ data.version }}">
-        <div class="header-submit">
-            <label class="header" for="saveas">Save as</label>
-            <input id=saveas class="save-as" type="text" name="filename" value="{{ title }}">
-            <input type="submit" value="save">
-        </div>
-    </form>
-    <form class="font-edit" method="post">
-        <label for="font" class="header">Font</label>
-        <input type="text" value="{{ font }}" id="font" name="font">
-        <input type="submit" value="save">
-    </form>
+    {% include 'form/content.html' %}
+    {% include 'form/font.html' %}
         <p>&nbsp;</p>
-    <div class="tables">
-    {% for record in data.records %}
-        <div class="column">
-        <div class="type-header" onclick="toggleTable({{ record.nr }})">
-            {{ record.nr }}: {{ record.name }}
-        </div>
-        <table style="display: none" id="nr_{{ record.nr }}">
-            {% for key, field in record.fields.items() %}
-                <tr>{% include 'form/input.html' %}</tr>
-            {% endfor %}
-        </table>
-        </div>
-    {% endfor %}
-    </div>
+    {% include 'form/records/filter.html' %}
+    {% include 'form/records/records.html' %}
 {% endblock %}

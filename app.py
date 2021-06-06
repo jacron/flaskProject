@@ -31,7 +31,8 @@ def allowed_file(filename):
 
 @app.route('/exchange', methods=['POST', 'GET'])
 @app.route('/exchange/<filename>', methods=['POST', 'GET'])
-def read(filename=None):
+@app.route('/exchange/<filename>/<code>', methods=['POST', 'GET'])
+def read(filename=None, code=None):
 
     if request.method == 'POST':
         if 'content' in request.form:
@@ -52,6 +53,10 @@ def read(filename=None):
             response.set_cookie(FONT_NAME, request.form['font'])
             response.headers['location'] = '/exchange/' + filename
             return response, 302
+        if 'filter' in request.form:
+            filter_ = request.form['filter']
+            if filter_ != -1:
+                return redirect('/exchange/' + filename + '/' + filter_)
 
     path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
     names = get_exchange_files(path, '.bl8')
@@ -59,7 +64,9 @@ def read(filename=None):
     content = None
     font = request.cookies.get(FONT_NAME) or DEFAULT_FONT
     if len(names) > 0 and filename:
-        data = read_exchange(filename, path, request.args)
+        if code == '-1':
+            code = None
+        data = read_exchange(filename, path, code)
         if data.get('lines'):
             content = ''.join(data['lines'])
     return render_template('form/form.html',
@@ -69,6 +76,7 @@ def read(filename=None):
                            paths=DIRS,
                            names=names,
                            font=font,
+                           code=code,
                            data=data)
 
 

@@ -1,6 +1,7 @@
 # sampledir = '/Volumes/frisbep/ont/import/'
 DIRS = [
     '/Users/orion/Dev/klanten/wur/frisbe_import/sample_exchange_files/',
+    '/Users/orion/Dev/klanten/wur/frisbe_import/sample_exchange_files/big/',
     '/Volumes/frisbep/ont/import/'
 ]
 SAMPLEDIR = DIRS[0]
