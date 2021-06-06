@@ -16,10 +16,25 @@ function insert(line, position, alignment, len, value) {
         line.substr(position + len);
 }
 
+function getposition(nr, lines, position) {
+    let p = 0;
+    for (let i = 0; i < nr - 1; i++) {
+        p += lines[i].length + 1;
+    }
+    return p + position;
+}
+
 inputchange = (nr, position, alignment, len, value) => {
     // console.log('changing nr:' + nr);
-    let content = document.getElementById('content').value;
-    let lines = content.split('\n');
+    let content = document.getElementById('content');
+    let text = content.value;
+    let lines = text.split('\n');
+    let pos = getposition(nr, lines, position);
+    let toInsert = fill(value, alignment, len);
+    content.selectionStart = pos;
+    content.selectionEnd = pos + len;
     lines[nr - 1] = insert(lines[nr - 1], position, alignment, len, value);
-    document.getElementById('content').innerHTML = lines.join('\n');
+    content.innerHTML = lines.join('\n');
+    content.focus();
+    content.setSelectionRange(pos, pos + len);
 }
