@@ -11,8 +11,8 @@ function fill(value, alignment, len) {
     }
 }
 
-function insert(line, position, alignment, len, value) {
-    return line.substr(0, position) + fill(value, alignment, len) +
+function insert(line, position, toInsert, len) {
+    return line.substr(0, position) + toInsert +
         line.substr(position + len);
 }
 
@@ -31,9 +31,7 @@ inputchange = (nr, position, alignment, len, value) => {
     let lines = text.split('\n');
     let pos = getposition(nr, lines, position);
     let toInsert = fill(value, alignment, len);
-    content.selectionStart = pos;
-    content.selectionEnd = pos + len;
-    lines[nr - 1] = insert(lines[nr - 1], position, alignment, len, value);
+    lines[nr - 1] = insert(lines[nr - 1], position, toInsert, len);
     content.innerHTML = lines.join('\n');
     content.focus();
     content.setSelectionRange(pos, pos + len);
