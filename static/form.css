@@ -11,6 +11,7 @@ div.message {
 div.header {
     font-size: larger;
     font-weight: bold;
+    margin-bottom: 12px;
 }
 div.sub-header {
     margin-bottom: 16px;
@@ -66,7 +67,7 @@ input.path {
     width: calc(100% - 128px);
 }
 input.save-as {
-    width: calc(100% - 148px);
+    width: 400px;
 }
 label.header {
     width: 60px;
@@ -74,4 +75,11 @@ label.header {
 }
 .position {
     height: 18px;
+}
+.clear-btn {
+    visibility: hidden;
+}
+.save-btn {
+    position: absolute;
+    margin: -20px 0 0 500px;
 }

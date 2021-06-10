@@ -36,3 +36,19 @@ inputchange = (nr, position, alignment, len, value) => {
     content.focus();
     content.setSelectionRange(pos, pos + len);
 }
+
+inputfocus = input => {
+    const button = input.nextElementSibling;
+    button.style.visibility = 'visible';
+}
+
+inputblur = input => {
+    const button = input.nextElementSibling;
+    // button.style.visibility = 'hidden';
+}
+
+clearinput = btn => {
+    console.log(btn);
+    const input = btn.previousElementSibling;
+    input.value = '';
+}

@@ -17,7 +17,9 @@
         maxlength="{{ len }}"
         name="{{ name }}"
         title="{{ name }} ({{ len }})"
+        onfocus="inputfocus(this)"
+        onblur="inputblur(this)"
         onchange="inputchange(
             {{ record.nr }}, {{ position }}, '{{ alignment }}', {{ len }}, this.value)"
-    >
+    >&nbsp;<span class="clear-btn" onclick="clearinput(this)">x</span>
 </td>

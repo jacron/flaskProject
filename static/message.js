@@ -1,4 +1,6 @@
 function setMessage(s) {
+    const topline = document.getElementById('topline');
+    topline.style.display = 'block';
     const msg = document.getElementById('message');
     msg.textContent = s;
 }
@@ -32,4 +34,11 @@ showMessage = () => {
         clearMessage();
     }
 
+}
+
+displayMessage = s => {
+    setMessage(s);
+    setTimeout(() => {
+        clearMessage();
+    }, 2000)
 }

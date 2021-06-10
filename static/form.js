@@ -16,3 +16,15 @@ onbodyload = () => {
     showMessage();
     showPosition();
 }
+
+save = () => {
+    const form = document.getElementById('saveForm');
+    const url = '/exchange';
+    const data = {
+        content: form.content.textContent,
+        filename: form.filename.value
+    }
+    postAjax(url, data, result => {
+        displayMessage(result);
+    });
+}

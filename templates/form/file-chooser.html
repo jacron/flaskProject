@@ -1,6 +1,16 @@
        <form method=post>
            <label class="header" for="filename">Filename</label>
-           <select id=filename name="filename" onchange="this.form.submit()">
+           <input type="text" list="filenames" name="filename">
+           <datalist id="filenames">
+               {% for name in names %}
+                   <option value="{{ name }}">
+               {% endfor %}
+           </datalist>
+           <input type=submit value=choose>
+        </form>
+       <form method=post>
+           <label class="header" for="filename2">Filename</label>
+           <select id=filename name="filename2" onchange="this.form.submit()">
                {% for name in names %}
                    {% if name == title %}
                        {% set selected='selected=selected' %}

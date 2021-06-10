@@ -82,7 +82,7 @@ def get_records(lines, def_, field_defs_, code):
                 if record:
                     rcode = record['fields']['type']['value']
                     codes.add(rcode)
-                    if code is None or code == rcode:
+                    if code is None or rcode in code:
                         record['nr'] = i
                         records.append(record)
         i += 1

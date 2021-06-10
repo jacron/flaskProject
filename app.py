@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, render_template, request, make_response, redirect
 
 from get_files import get_exchange_files
@@ -40,7 +42,8 @@ def read(filename=None, code=None):
             filename = request.form['filename']
             path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
             write_exchange(content, filename, path)
-            return redirect('/exchange/' + filename)
+            return json.dumps(f"saved '{filename}'")
+            # return redirect('/exchange/' + filename)
         if 'exchangepath' in request.form:
             response = make_response()
             response.set_cookie(COOKIE_PATH_NAME, request.form['exchangepath'])
@@ -48,15 +51,19 @@ def read(filename=None, code=None):
             return response, 302
         if 'filename' in request.form:
             return redirect('/exchange/' + request.form['filename'])
+        if 'filename2' in request.form:
+            return redirect('/exchange/' + request.form['filename2'])
         if 'font' in request.form:
             response = make_response()
             response.set_cookie(FONT_NAME, request.form['font'])
             response.headers['location'] = '/exchange/' + filename
             return response, 302
         if 'filter' in request.form:
-            filter_ = request.form['filter']
+            # form = request.form
+            filter_ = request.form.getlist('filter')
             if filter_ != -1:
-                return redirect('/exchange/' + filename + '/' + filter_)
+                return redirect('/exchange/' + filename + '/' +
+                                ','.join(filter_))
 
     path = request.cookies.get(COOKIE_PATH_NAME) or SAMPLEDIR
     names = get_exchange_files(path, '.bl8')
@@ -66,6 +73,8 @@ def read(filename=None, code=None):
     if len(names) > 0 and filename:
         if code == '-1':
             code = None
+        if code:
+            code = code.split(',')
         data = read_exchange(filename, path, code)
         if data.get('lines'):
             content = ''.join(data['lines'])

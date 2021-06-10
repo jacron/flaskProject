@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Edit Exchange file {{ title }}{% endblock %}
+{% block title %}{{ title }}{% endblock %}
 {% block css %}
     <link href="/static/form.css" rel="stylesheet">
 {% endblock %}
@@ -7,7 +7,6 @@
     {% include 'form/message.html' %}
     <div class="editor-header">
         <div class="header" id="filename">{{ title }}</div>
-        <div class="sub-header">{{ data.records | length }} lines</div>
         {% include 'form/dir-chooser.html' %}
         {% include 'form/file-chooser.html' %}
     </div>

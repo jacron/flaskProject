@@ -1,4 +1,4 @@
-    <form method="post" onsubmit="notify_saved()">
+    <form method="post" onsubmit="notify_saved()" id="saveForm">
         <textarea id="content" class="content" title="" name="content"
                   style="font-size: {{ font }}px">{{ content }}</textarea>
         <div class="position" id="position" style="margin-left: 16px"></div>
@@ -6,11 +6,12 @@
         <div class="header-submit">
             <label class="header" for="saveas">Save as</label>
             <input id=saveas class="save-as" type="text" name="filename" value="{{ title }}">
-            <input type="submit" value="save">
+{#            <input type="submit" value="save">#}
         </div>
     </form>
-        <form class="font-edit" method="post">
-            <label for="font" class="header">Font</label>
-            <input type="text" value="{{ font }}" id="font" name="font" class="little">
-            <input type="submit" value="set">
-        </form>
+    <button class="save-btn" onclick="save()">save</button>
+    <form class="font-edit" method="post">
+        <label for="font" class="header">Font</label>
+        <input type="text" value="{{ font }}" id="font" name="font" class="little">
+        <input type="submit" value="set">
+    </form>
