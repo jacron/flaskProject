@@ -1,3 +1,5 @@
+const DELAY = 4000
+
 function setMessage(s) {
     const topline = document.getElementById('topline');
     topline.style.display = 'block';
@@ -28,7 +30,7 @@ showMessage = () => {
         setMessage(message);
         setTimeout(() => {
             clearMessage();
-        }, 2000)
+        }, DELAY)
         document.cookie='msg=';
     } else {
         clearMessage();
@@ -40,5 +42,5 @@ displayMessage = s => {
     setMessage(s);
     setTimeout(() => {
         clearMessage();
-    }, 2000)
+    }, DELAY)
 }

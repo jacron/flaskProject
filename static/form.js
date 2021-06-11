@@ -21,9 +21,10 @@ save = () => {
     const form = document.getElementById('saveForm');
     const url = '/exchange';
     const data = {
-        content: form.content.textContent,
+        content: form.content.value,
         filename: form.filename.value
     }
+    // console.log(data.content);
     postAjax(url, data, result => {
         displayMessage(result);
     });
