@@ -58,10 +58,32 @@ def parse_line(line, record_def, field_defs_):
 
 def get_record_type_def(line, def_):
     code_ = line[:2]
+    # let's try: Sm really is Hl
+    if code_ == 'Sm':
+        code_ = 'Hl'
     record_def = get_record_def_by_code(code_, def_)
     if not record_def:
         print('No record def for code: ' + code_)
     return record_def
+
+
+def get_meta(line, meta):
+    parts = line[2:].split(': ')
+    prefix = parts[0][1:]
+    value = parts[1]
+    meta[prefix] = value
+
+
+def get_record(line, records, def_, field_defs_, codes, code, i):
+    record_def = get_record_type_def(line, def_)
+    if record_def:
+        record = parse_line(line.strip(), record_def, field_defs_)
+        if record:
+            rcode = record['fields']['type']['value']
+            codes.add(rcode)
+            if code is None or rcode in code:
+                record['nr'] = i
+                records.append(record)
 
 
 def get_records(lines, def_, field_defs_, code):
@@ -71,20 +93,9 @@ def get_records(lines, def_, field_defs_, code):
     codes = set()
     for line in lines:
         if line.startswith('#'):
-            parts = line[2:].split(': ')
-            prefix = parts[0][1:]
-            value = parts[1]
-            meta[prefix] = value
+            get_meta(line, meta)
         else:
-            record_def = get_record_type_def(line, def_)
-            if record_def:
-                record = parse_line(line.strip(), record_def, field_defs_)
-                if record:
-                    rcode = record['fields']['type']['value']
-                    codes.add(rcode)
-                    if code is None or rcode in code:
-                        record['nr'] = i
-                        records.append(record)
+            get_record(line, records, def_, field_defs_, codes, code, i)
         i += 1
     return records, meta, codes
 
